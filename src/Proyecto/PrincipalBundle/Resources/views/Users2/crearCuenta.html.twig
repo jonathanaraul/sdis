@@ -1,12 +1,18 @@
-{% extends "ProyectoPrincipalBundle:Principal:basefases2.html.twig" %}
+{% extends "ProyectoPrincipalBundle:Principal2:basefases2.html.twig" %}
+
+
+{%block scripts%}
+	<script type="text/javascript">
+		var direccionGuardarUsuario = '{{path('proyecto_principal_cuenta_guardar')}}';
+		var direccionInicio = '{{path('proyecto_principal_homepage')}}';
+	</script>
+{%endblock%}
+
+
 {%block contenido%}
 <div class="contenedor" style="" >
-	{% if error %}
-	<p style="color: #FF0029;text-align: center;">
-		Sus datos son inv&aacute;lidos
-	</p>
-	{% endif %}
-	<form action="{{ path('ProyectoPrincipalBundle_validacion') }}" method="post" >
+
+	<form action="#" method="post" >
 		<fieldset>
 			<legend>
 				REGISTRO
@@ -17,7 +23,7 @@
 						<label for="name" class="letranormal">Nombre:</label>
 					</div>
 					<div class="entradacuadro">
-						<input type="text" name="_username" id="nombre" class="entrada" value="{{ ultimo_nombreusuario}}" />
+						<input type="text" name="_username" id="nombre" class="entrada" value="" />
 					</div>
 				</div>
 				<div class="cuadro1">
@@ -25,7 +31,7 @@
 						<label for="name" class="letranormal">Apellido:</label>
 					</div>
 					<div class="entradacuadro">
-						<input type="text" name="_username" id="apellido" class="entrada" value="{{ ultimo_nombreusuario}}" />
+						<input type="text" name="_username" id="apellido" class="entrada" value="" />
 					</div>
 				</div>
 				<div class="cuadro1">
@@ -33,7 +39,15 @@
 						<label for="name" class="letranormal">Nombre de Usuario:</label>
 					</div>
 					<div class="entradacuadro">
-						<input type="text" name="_username" id="nombreusuario" class="entrada" value="{{ ultimo_nombreusuario}}" />
+						<input type="text" name="_username" id="nombredeusuario" class="entrada" value="" />
+					</div>
+				</div>
+				<div class="cuadro1">
+					<div class="titulocuadro">
+						<label for="name" class="letranormal">Email:</label>
+					</div>
+					<div class="entradacuadro">
+						<input type="text" name="email" id="email" class="entrada" value="" />
 					</div>
 				</div>
 				<div class="cuadro1">
@@ -52,12 +66,20 @@
 						<input type="password" name="contrasenia2" id="contrasenia2"  class="entrada"/>
 					</div>
 				</div>
+				<div class="cuadro1">
+					<div class="titulocuadro">
+						<label for="password" class="letranormal">Descripci&oacute;n</label>
+					</div>
+					<div class="entradacuadro">
+						<textarea id="descripcion" style="position: static;max-width: 150px;min-width: 158px;margin-bottom: 20px"></textarea>
+					</div>
+				</div>
 				<div class="cuadro1" style="margin-bottom: 33px;">
 					<div class="cuadroA" style="width: 294px;float: left;" align="center" >
-						<a href="{{ path('ProyectoPrincipalBundle_homepage') }}" class="botones">Cancelar</a>
+						<a href="{{ path('proyecto_principal_homepage') }}" class="botones">Cancelar</a>
 					</div>
-					<div class="cuadrob" style="width: 295px;float: left;" align="center">
-						<a href="javascript:void(0)" class="botones" id="registro">Registrarme</a>
+					<div class="cuadrob" style="width: 295px;float: left;margin-bottom: 20px;" align="center">
+						<a href="javascript:void(0)" class="botones" id="registroUsuario">Registrarme</a>
 					</div>
 				</div>
 			</div>

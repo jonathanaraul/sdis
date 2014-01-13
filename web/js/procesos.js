@@ -78,7 +78,7 @@ $("#nuevoGuardar").live("click", function() {
 	});
 });
 
-$("#registro").live("click", function() {
+$("#registroUsuario").live("click", function() {
 
 	if(!validaTodosLosCampos($("input[type=text],input[type=password],textarea").not('.opcional')))
 		return false;
@@ -90,15 +90,15 @@ $("#registro").live("click", function() {
 	$("#loader").css('display', 'block');
 
 	var data = 'tipo=registro';
-	$.each($("input[type=text],input[type=password]"), function(indice, valor) {
+	$.each($("input[type=text],input[type=password],textarea"), function(indice, valor) {
 		var auxiliar = $.trim($(valor).val());
 		var id = $(valor).attr('id');
 		data += '&' + id + '=' + auxiliar;
 
 	});
-
+	
 	$.post(direccionGuardarUsuario, data, function(respuesta) {
-
+		var respuesta = JSON.parse(respuesta);
 		if(respuesta.estado == true) {
 			jAlert(respuesta.texto, 'Información');
 			document.location.href = direccionInicio;

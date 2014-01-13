@@ -266,7 +266,7 @@ class UtilitiesAPI extends Controller {
 		return $notifications;
 	}
 
-	public static function procesaUsuario($tipo, $nombre, $apellido, $nombreusuario, $contrasenia, $sexo, $email, $descripcion, $path, $class) {
+	public static function procesaUsuario($tipo, $nombre, $apellido, $nombreusuario, $contrasenia, $email, $descripcion, $class) {
 
 		$factory = $class -> get('security.encoder_factory');
 		$user = null;
@@ -292,9 +292,7 @@ class UtilitiesAPI extends Controller {
 		$user -> setNombre($nombre);
 		$user -> setApellido($apellido);
 		$user -> setUsername($nombreusuario);
-		$user -> setSexo($sexo);
 		$user -> setEmail($email);
-		$user -> setPath($path);
 		$user -> setDescripcion($descripcion);
 
 		$em = $class -> getDoctrine() -> getManager();

@@ -93,7 +93,7 @@ function validaTodosLosCampos(elementos) {
 	var validacion = true;
 	var camposLlenos = 0;
 	$.each(elementos, function(indice, valor) {
-		var auxiliar = $(valor).val();
+		var auxiliar = $.trim($(valor).val());
 		var campo = $.trim($(valor).parent().prev().find('label').html());
 		campo=$.trim(campo.replace(":",''));
 		

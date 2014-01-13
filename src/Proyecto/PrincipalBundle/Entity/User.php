@@ -52,18 +52,10 @@ class User implements UserInterface, \Serializable
     private $email;
 
     /**
-     * @ORM\Column(name="sexo", type="boolean")
-     */
-    private $sexo;
-    /**
      * @ORM\Column(name="is_active", type="boolean")
      */
     private $isActive;
 
-     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     */
-    public $path;
 	
      /**
      * @ORM\Column(type="text")
@@ -226,29 +218,6 @@ class User implements UserInterface, \Serializable
     }
 
     /**
-     * Set sexo
-     *
-     * @param boolean $sexo
-     * @return User
-     */
-    public function setSexo($sexo)
-    {
-        $this->sexo = $sexo;
-    
-        return $this;
-    }
-
-    /**
-     * Get sexo
-     *
-     * @return boolean 
-     */
-    public function getSexo()
-    {
-        return $this->sexo;
-    }
-
-    /**
      * Set isActive
      *
      * @param boolean $isActive
@@ -269,29 +238,6 @@ class User implements UserInterface, \Serializable
     public function getIsActive()
     {
         return $this->isActive;
-    }
-
-    /**
-     * Set path
-     *
-     * @param string $path
-     * @return User
-     */
-    public function setPath($path)
-    {
-        $this->path = $path;
-    
-        return $this;
-    }
-
-    /**
-     * Get path
-     *
-     * @return string 
-     */
-    public function getPath()
-    {
-        return $this->path;
     }
 
     /**

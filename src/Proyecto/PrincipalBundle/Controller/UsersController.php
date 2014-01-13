@@ -48,19 +48,18 @@ class UsersController extends Controller {
 		$nombreusuario = trim($post -> get("nombredeusuario"));
 		$contrasenia = $post -> get("password");
 		$contrasenia2 = $post -> get("password2");
-		$sexo = intval($post -> get("sexomasculino"));
 		$email = $post -> get("email");
 		$descripcion = htmlentities(addslashes($post -> get("descripcion")));
-		$path = "images/avatar-man.png";
-
-		if ($sexo == 1)
-			$path = "images/avatar-woman.png";
+		$texto =  "No se pudo guardar su informacion, por favor intente mas tarde...";
 
 		$estado = StringUtils::equals($contrasenia, $contrasenia2);
-		if ($estado == true)
-			UtilitiesAPI::procesaUsuario($tipo, $nombre, $apellido, $nombreusuario, $contrasenia, $sexo, $email, $descripcion, $path, $this);
+		if ($estado == true){
+			UtilitiesAPI::procesaUsuario($tipo, $nombre, $apellido, $nombreusuario, $contrasenia, $email, $descripcion, $this);
+			$texto = 'Bienvenido '.$nombreusuario.' ya puede ingresar al sistema';
+		}
+			
 
-		$respuesta = new response(json_encode(array('estado' => $estado)));
+		$respuesta = new response(json_encode(array('estado' => $estado, 'texto'=>$texto)));
 		$respuesta -> headers -> set('content_type', 'aplication/json');
 		return $respuesta;
 	}
@@ -81,7 +80,7 @@ class UsersController extends Controller {
 		$secondArray = array();
 
 		$array = array_merge($firstArray, $secondArray);
-		return $this -> render('ProyectoPrincipalBundle:Users:cuenta.html.twig', $array);
+		return $this -> render('ProyectoPrincipalBundle:Users2:crearCuenta.html.twig', $array);
 	}
 
 }

@@ -28,8 +28,6 @@ class DefaultController extends Controller {
 			
 		$firstArray = UtilitiesAPI::getDefaultContent('Acerca', 'Autores del sistema', $this);
 		$user = UtilitiesAPI::getActiveUser($this);
-		
-
 
 		$autors = UtilitiesAPI::getAutors($this);
 		$auxiliar = array('descripcionusuario' => stripcslashes(html_entity_decode($user -> getDescripcion())));
@@ -38,7 +36,6 @@ class DefaultController extends Controller {
 
 		$array = array_merge($firstArray, $secondArray);
 
-		$array = array_merge($firstArray, $secondArray);
 		return $this -> render('ProyectoPrincipalBundle:Principal2:acerca.html.twig', $array);
 	}
 
