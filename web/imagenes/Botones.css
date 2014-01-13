@@ -1,0 +1,29 @@
+.botones {
+	-moz-box-shadow:inset 0px 1px 0px 0px #ffffff;
+	-webkit-box-shadow:inset 0px 1px 0px 0px #ffffff;
+	box-shadow:inset 0px 1px 0px 0px #ffffff;
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #f5e6df), color-stop(1, #a39089) );
+	background:-moz-linear-gradient( center top, #f5e6df 5%, #a39089 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#f5e6df', endColorstr='#a39089');
+	background-color:#f5e6df;
+	-moz-border-radius:6px;
+	-webkit-border-radius:6px;
+	border-radius:6px;
+	border:1px solid #966854;
+	display:inline-block;
+	color:#487dbd;
+	font-family:Trebuchet MS;
+	font-size:15px;
+	font-weight:bold;
+	padding:6px 24px;
+	text-decoration:none;
+	text-shadow:1px 1px 0px #f5e6df;
+}.botones:hover {
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #a39089), color-stop(1, #f5e6df) );
+	background:-moz-linear-gradient( center top, #a39089 5%, #f5e6df 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#a39089', endColorstr='#f5e6df');
+	background-color:#a39089;
+}.botones:active {
+	position:relative;
+	top:1px;
+}

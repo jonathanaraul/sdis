@@ -1,0 +1,34 @@
+
+<div class="contenedor2" style="background-color: #ffffff;margin-top: 30px">
+	<table width="100%" style="font-family: "Tahoma", "Geneva", sans-serif;color: #ffffff;padding: 10px;">
+		{%for elemento in arreglo%}
+		<tr>
+			<td colspan="5" align="center" style="color:white;background-color: #A87A6A;">{{nombres[arregloFases[loop.index0] -1]}}</td>
+		</tr>
+		{%for fila in elemento if fila.estado == true%}
+		<tr align="center">
+			<td class="columna" width="35%"> {{fila.titulo}} </td>
+			<td class="columna"  width="10%"> {{fila.valor}} </td>
+			<td class="columna"  width="10%">{%if fila.unidades is defined%} {{fila.unidades}}{%else%}N/A{%endif%}</td>
+			<td class="columna"  width="35%"> {{fila.texto}} </td>
+			<td class="columna"  width="10%"> {{fila.tipo|title}}</td>
+		</tr>
+		{%endfor%}
+
+		<tr>
+			<td colspan="5" align="center" style="">Puntuación : {{puntuaciones[loop.index0]}}</td>
+		</tr>
+		{%endfor%}
+		<tr>
+			<td  colspan="5" align="center" style="color:white;background-color: #A87A6A;">{{mensajeFinal}}</td>
+		</tr>
+	</table>
+	
+
+</div>
+<div style="text-align: center;margin-top: 30px" class="botonescontenedor2">
+	<a href="javascript:void(0)" class="botones faseanterior">Regresar</a>
+	<a href="javascript:void(0)" class="botones siguientefase" id="siguientef" style="">Siguiente Fase</a>
+	<a href="javascript:void(0)" class="botones imprimir"><img src="{{ asset('imagenes/print.png') }}" width="14">Imprimir</a>
+	<a href="{{ path('ProyectoPrincipalBundle_homepage') }}" class="botones">Menu</a>
+</div>

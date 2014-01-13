@@ -1,0 +1,28 @@
+{% extends "ProyectoPrincipalBundle:Principal2:basefases2.html.twig" %}
+{%block contenido%}
+<div class="contenedor" style="" >
+	{%for autor in autors%}
+	<form action="#" method="post" >
+		<fieldset>
+			<legend>
+				{{autor.nombre |title}} {{autor.apellido |title}}
+			</legend>
+			<div id="contenidoregistro">
+			    <div class="cuadro1" style="margin-bottom: 33px;margin-left: 20px;margin-right: 20px;text-align: justify;">
+						
+				<p>{% autoescape false %}{{autor.descripcion }}{% endautoescape %}</p>
+								
+						
+						
+				</div>
+			</div>
+		</fieldset>
+	</form>
+	{%endfor%}
+</div>
+
+<div style="margin-top: 0px;text-align: center;">
+	<a href="{{path('proyecto_principal_nuevo')}}" class="botones">Nuevo</a>
+	<a href="{{path('proyecto_principal_listado')}}" class="botones">Listado</a>
+</div>
+{%endblock%} 

@@ -1,0 +1,14 @@
+{% extends "ProyectoPrincipalBundle:Principal2:base.html.twig" %}
+{%block contenedorprincipal%}
+<div style="text-align: center"><a href="{{ path('proyecto_principal_homepage') }}" ><img src="{{ asset('imagenes/cabecera.png') }}" height="100px" ></a></div>
+{%block contenido%}
+{%endblock%} 
+
+<div class="piepagina">
+	<div class="fechaabajo">
+		{{datos.fecha}}
+	</div>
+	
+</div>
+		
+{%endblock%} 

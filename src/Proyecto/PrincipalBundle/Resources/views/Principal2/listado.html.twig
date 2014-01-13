@@ -1,0 +1,54 @@
+{% extends "ProyectoPrincipalBundle:Principal:basefases.html.twig" %}
+{%block contenido%}
+<div class="contenedor">
+	<input type="hidden" value="" id="idestudio" />
+	<form action="" method="post">
+		<fieldset id="cuadrof1">
+			<input type="hidden" value="" id="idf1" />
+			<legend id="tituloFase">
+				Listado de Estudios
+			</legend>
+			<div id="contenidof1">
+				<div class="cuadro1" style="width: 100%;">
+					<div >
+						{%if arreglo !=null%}
+						<table width="100%" style="background-color: white;text-align: center;font-size: 0.8em;">
+							<tr>
+								<td style="background-color: #A87A6A;color: white;font-weight: bold;">Nombre</td>
+								<td style="background-color: #A87A6A;color: white;font-weight: bold;">Fecha de Creacion</td>
+								<td style="background-color: #A87A6A;color: white;font-weight: bold;">Fases</td>
+								<td style="background-color: #A87A6A;color: white;font-weight: bold;">Editar</td>
+								<td style="background-color: #A87A6A;color: white;font-weight: bold;">Eliminar</td>
+							</tr>
+							{%for elemento in arreglo%}
+							<tr>
+								<td>{{elemento.nombre}}</td>
+								<td>{{elemento.getFechaLista}}</td>
+								<td>{{elemento.fases}}</td>
+								<td><img src="{{ asset('imagenes/editar.png') }}" class="mouse editar" codigo="{{elemento.getId}}"  style="display: block;margin-left: auto;margin-right: auto;">
+									<img src="{{ asset('imagenes/miniloader.gif') }}"  width="16" height="16" style="display: none;margin-left: auto;margin-right: auto;" >
+								</td>
+								<td>
+									<img src="{{ asset('imagenes/eliminar.png') }}" class="mouse eliminar" codigo="{{elemento.getId}}" style="display: block;margin-left: auto;margin-right: auto;" >
+									<img src="{{ asset('imagenes/miniloader.gif') }}"  width="16" height="16" style="display: none;margin-left: auto;margin-right: auto;">
+									</td>		
+							</tr>
+							{%endfor%}
+						</table>
+						{%else%}
+						<p style="text-align: center;margin-top: 73px;">No hay estudios registrados actualmente.</p>
+						{%endif%}
+					</div>
+				</div>
+				
+				
+				<div class="botonera">
+					<a href="{{ path('ProyectoPrincipalBundle_homepage') }}" class="botones"  >Cancelar</a>
+				
+				</div>
+			</div>
+			<img id="loaderf1" src="{{ asset('imagenes/loader.gif') }}" align="center" style="padding-top: 100px;padding-bottom: 100px;display: none;margin: auto;">
+		</fieldset>
+	</form>
+</div>
+{%endblock%}

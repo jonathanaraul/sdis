@@ -1,0 +1,119 @@
+<?php
+
+namespace Proyecto\PrincipalBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Proyecto
+ *
+ * @ORM\Table(name="proyecto")
+ * @ORM\Entity
+ */
+class Proyecto
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="fecha", type="datetime", nullable=false)
+     */
+    private $fecha;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nombre", type="string", length=300, nullable=false)
+     */
+    private $nombre;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="langelier", type="boolean", nullable=false)
+     */
+    private $langelier;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="rysnar", type="boolean", nullable=false)
+     */
+    private $rysnar;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="puckorius", type="boolean", nullable=false)
+     */
+    private $puckorius;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="informacion", type="text", nullable=false)
+     */
+    private $informacion;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="autoguardado", type="boolean", nullable=false)
+     */
+    private $autoguardado;
+
+    /**
+     * @var float
+     *
+     * @ORM\Column(name="ph", type="float", nullable=false)
+     */
+    private $ph;
+
+    /**
+     * @var float
+     *
+     * @ORM\Column(name="tds", type="float", nullable=false)
+     */
+    private $tds;
+
+    /**
+     * @var float
+     *
+     * @ORM\Column(name="t", type="float", nullable=false)
+     */
+    private $t;
+
+    /**
+     * @var float
+     *
+     * @ORM\Column(name="ca2", type="float", nullable=false)
+     */
+    private $ca2;
+
+    /**
+     * @var float
+     *
+     * @ORM\Column(name="alcalinidad", type="float", nullable=false)
+     */
+    private $alcalinidad;
+
+    /**
+     * @var \User
+     *
+     * @ORM\ManyToOne(targetEntity="User")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="user", referencedColumnName="id")
+     * })
+     */
+    private $user;
+
+
+}

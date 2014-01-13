@@ -1,0 +1,26 @@
+{% extends "ProyectoPrincipalBundle:Principal2:base.html.twig" %}
+
+{%block contenedorprincipal%}
+<div style="margin-top: 0px;text-align: center;">
+	<img src="{{ asset('imagenes/logo.png') }}" width="450" >
+	</br> 
+	<a href="{{path('proyecto_principal_nuevo')}}" class="botones">Nuevo</a>
+	<a href="{{path('proyecto_principal_listado')}}" class="botones">Listado</a>
+	<a href="{{path('proyecto_principal_historia')}}" class="botones">Historia</a>
+	<a href="{{ asset('recursos/manualdeusuario.pdf') }}" class="botones" style="" target="_blank">Manual</a>
+	<a href="{{path('proyecto_principal_acerca')}}" class="botones">Acerca de...</a>
+	
+</div>
+
+<div class="piepagina">
+	<div class="fechaabajo">
+		{{datos.fecha}}
+	</div>
+	<div class="usuario">
+		{{datos.usuario}}
+	</div>
+	<div class="botoncerrar">
+		<a href="{{ path('proyecto_principal_cerrarsesion') }}" class="botones">Cerrar sesión</a>
+	</div>
+</div>
+{%endblock%} 

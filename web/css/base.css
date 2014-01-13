@@ -1,0 +1,51 @@
+
+h1 { font-family: Trebuchet MS; 
+color: #966854; 
+text-align: center;}
+
+body {
+
+}
+.columna{
+		font: 70% arial; 
+		
+}
+.myinputstyle {
+	border: 1px solid #fbfcfd;
+	/** remember to change image path **/
+	background: url(bg2983645191) repeat-x #fbfcfd;
+	font-family: 'trebuchet ms', helvetica, sans-serif;
+	font-style: normal;
+	font-size: 16px;
+	color: #322620;
+}
+
+/** You can use this style for your LABEL elements **/
+.mylabelstyle {
+	font-family: tahoma, helvetica, sans-serif;
+	font-style: bold;
+	font-size: 16px;
+	color: #322620;
+}
+
+/** 
+*  You can use this style for your INPUT, TEXTAREA, SELECT elements 
+*  for onmousehover event
+**/
+.myinputstyle:hover {
+	border: 1px solid #FFFFFF;
+	/** remember to change image path **/
+	background: url(none) no-repeat #FFFFFF;
+	color: #454743;
+}
+
+/** 
+* You can use this style for your INPUT, TEXTAREA, SELECT elements 
+* for onmousefocus event
+**/
+.myinputstyle:focus {
+	border: 1px solid #FFFFFF;
+	/** remember to change image path **/
+	background: url(none) no-repeat #FFFFFF;
+	color: #454743;
+}

@@ -1,0 +1,85 @@
+{% extends "ProyectoPrincipalBundle:Principal:basefases.html.twig" %}
+{%block estilos%}
+<link rel="stylesheet" type="text/css" href="{{ asset('css/jquery-ui.css') }}" >
+<link rel="stylesheet" type="text/css" href="{{ asset('css/jquery.multiselect.css') }}">
+{%endblock%}
+
+{%block scripts%} <script type="text/javascript" src="{{ asset('js/jquery-ui.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/jquery.multiselect.js') }}"></script>
+<script type="text/javascript">
+	//<![CDATA[
+	$(function() {
+		$("select").multiselect({
+			selectedText : "# de # seleccionados"
+		});
+	});
+	//]]>
+</script>
+{%endblock%}
+
+{%block contenido%}
+<div class="contenedor">
+	<input type="hidden" value="{%if estudio !=null%}{{estudio.getId}}{%else%}0{%endif%}" id="idestudio" />
+	<form action="" method="post">
+		<fieldset id="cuadrof1">
+			<input type="hidden" value="" id="idf1" />
+			<legend id="tituloFase">
+				{%if nuevo%}Crear{%else%}Editar{%endif%} Estudio
+			</legend>
+			<div id="contenidof1">
+				<div class="cuadro1">
+					<div class="titulocuadro">
+						<label for="name" class="letranormal">Nombre:</label>
+					</div>
+					<div class="entradacuadro">
+						<input type="text" class="entrada texto" name="nombre" value="{%if estudio !=null%}{{estudio.nombre}}{%endif%}" id="nombre" style="width: 201px;">
+					</div>
+				</div>
+				<div class="cuadro1">
+					<div class="titulocuadro">
+						<label for="name" class="letranormal" >Fases a estudiar:</label>
+					</div>
+					<div class="entradacuadro">
+						<!--<input type="text" class="entrada numero" name="nombre" value="" id="tiempoproductivorealtotal">!-->
+						{%set cuenta = 0 %}
+						{%set contador = 0 %}
+						<select multiple>
+							{%for elemento in nombresFases%}
+							{%if estudio ==null%}
+							<option value="{{loop.index}}">{{elemento}}</option>
+							{%else%}
+							<option value="{{loop.index}}" 
+							
+							{%if fases[cuenta] == loop.index%}
+								selected="" 
+								{%set contador = contador + 1 %}
+								{%if fases|length > contador %}
+									{%set cuenta = cuenta + 1 %}
+								{%endif%}
+							{%endif%}
+							
+							>{{elemento}}</option>
+							
+							{%endif%}
+							{%endfor%}
+						</select>
+					</div>
+				</div>
+				<div class="cuadro1">
+					<div class="titulocuadro">
+						<label for="name" class="letranormal">Auto-Guardado:</label>
+					</div>
+					<div class="entradacuadro">
+						<input type="checkbox" name="autoguardado" id="autoguardado" {%if estudio !=null%}{%if estudio.getAutoguardado == 1%}checked=""{%endif%}{%endif%}>
+					</div>
+				</div>
+				<div class="botonera">
+					<a href="{{ path('ProyectoPrincipalBundle_homepage') }}" class="botones"  >Cancelar</a>
+					<a href="javascript:void(0)" class="botones" id="nuevoGuardar">Continuar</a>
+				</div>
+			</div>
+			<img id="loaderf1" src="{{ asset('imagenes/loader.gif') }}" align="center" style="padding-top: 100px;padding-bottom: 100px;display: none;margin: auto;">
+		</fieldset>
+	</form>
+</div>
+{%endblock%}

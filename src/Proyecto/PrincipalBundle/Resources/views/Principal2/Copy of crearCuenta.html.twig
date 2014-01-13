@@ -1,0 +1,68 @@
+{% extends "ProyectoPrincipalBundle:Principal:base.html.twig" %}
+{%block contenedorprincipal%}
+<div class="contenedor" style="margin-top: 141px;" >
+	{% if error %}
+	<p style="color: #FF0029;text-align: center;">
+		Sus datos son inv&aacute;lidos
+	</p>
+	{% endif %}
+	<form action="{{ path('ProyectoPrincipalBundle_validacion') }}" method="post" >
+		<fieldset>
+			<legend>
+				REGISTRO
+			</legend>
+			<div id="contenidoregistro">
+				<div class="cuadro1">
+					<div class="titulocuadro">
+						<label for="name" class="letranormal">Nombre:</label>
+					</div>
+					<div class="entradacuadro">
+						<input type="text" name="_username" id="nombre" class="entrada" value="{{ ultimo_nombreusuario}}" />
+					</div>
+				</div>
+				<div class="cuadro1">
+					<div class="titulocuadro">
+						<label for="name" class="letranormal">Apellido:</label>
+					</div>
+					<div class="entradacuadro">
+						<input type="text" name="_username" id="apellido" class="entrada" value="{{ ultimo_nombreusuario}}" />
+					</div>
+				</div>
+				<div class="cuadro1">
+					<div class="titulocuadro">
+						<label for="name" class="letranormal">Nombre de Usuario:</label>
+					</div>
+					<div class="entradacuadro">
+						<input type="text" name="_username" id="nombreusuario" class="entrada" value="{{ ultimo_nombreusuario}}" />
+					</div>
+				</div>
+				<div class="cuadro1">
+					<div class="titulocuadro">
+						<label for="password" class="letranormal">Contrase&ntilde;a:</label>
+					</div>
+					<div class="entradacuadro">
+						<input type="password" name="contrasenia1" id="contrasenia1" class="entrada" />
+					</div>
+				</div>
+				<div class="cuadro1">
+					<div class="titulocuadro">
+						<label for="password" class="letranormal">Repetir Contrase&ntilde;a:</label>
+					</div>
+					<div class="entradacuadro">
+						<input type="password" name="contrasenia2" id="contrasenia2"  class="entrada"/>
+					</div>
+				</div>
+				<div class="cuadro1" style="margin-bottom: 33px;">
+					<div class="cuadroA" style="width: 294px;float: left;" align="center" >
+						<a href="{{ path('ProyectoPrincipalBundle_homepage') }}" class="botones">Cancelar</a>
+					</div>
+					<div class="cuadrob" style="width: 295px;float: left;" align="center">
+						<a href="javascript:void(0)" class="botones" id="registro">Registrarme</a>
+					</div>
+				</div>
+			</div>
+				<img id="loader" src="{{ asset('imagenes/loader.gif') }}" align="center" style="padding-top: 100px;padding-bottom: 100px;display: none;margin: auto;">
+		</fieldset>
+	</form>
+</div>
+{%endblock%} 

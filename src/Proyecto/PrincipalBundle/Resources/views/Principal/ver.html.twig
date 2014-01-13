@@ -1,0 +1,142 @@
+{% extends "ProyectoPrincipalBundle:Helpers:base.html.twig" %}
+{%block info%}{% include 'ProyectoPrincipalBundle:Helpers:info.html.twig' with {'info': info} %}{%endblock%}
+{%block scripts%}
+<script type="text/javascript">
+	var panelControl = '{{path('proyecto_principal_homepage')}}';
+	var editarProyecto = '{{path('proyecto_principal_editar_objeto')}}';
+</script>
+{%endblock%}
+
+{%block contenido%}
+<div id="imprimible">
+<h3 class="header smaller red">{{object.nombre|title}}</h3>
+<div class="row-fluid span12">
+	<div class="span3 pricing-span-header">
+		<div class="widget-box transparent">
+			<div class="widget-header">
+				<h5 class="bigger lighter">Tipo</h5>
+			</div>
+			<div class="widget-body">
+				<div class="widget-main no-padding">
+					<ul class="unstyled list-striped pricing-table-header">
+						<li>
+							Valor
+						</li>
+						<li>
+							Parametro
+						</li>
+						<li>
+							Corrosi&oacute;n
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	{%if langelier is defined%}
+	<div class="span3 pricing-span">
+		<div class="widget-box pricing-box-small">
+			<div class="widget-header header-color-red3">
+				<h5 class="bigger lighter">&Iacute;ndice de Estabilidad de Langelier </h5>
+			</div>
+			<div class="widget-body">
+				<div class="widget-main no-padding">
+					<ul class="unstyled list-striped pricing-table">
+						<li>
+							{{langelier.valor}}
+						</li>
+						<li>
+							{{langelier.parametro}}
+						</li>
+						<li>
+							{{langelier.corrosion}}
+						</li>
+					</ul>
+				</div>
+				<div>
+					<!--<a href="#" class="btn btn-block btn-small btn-danger"> <span>Buy</span> </a>-->
+				</div>
+			</div>
+		</div>
+	</div>
+	{%endif%}
+	{%if ryznar is defined%}
+	<div class="span3 pricing-span">
+		<div class="widget-box pricing-box-small">
+			<div class="widget-header header-color-orange">
+				<h5 class="bigger lighter">&Iacute;ndice de Estabilidad de Ryznar</h5>
+			</div>
+			<div class="widget-body">
+				<div class="widget-main no-padding">
+					<ul class="unstyled list-striped pricing-table">
+						<li>
+							{{ryznar.valor}}
+						</li>
+						<li>
+							{{ryznar.parametro}}
+						</li>
+						<li>
+							{{ryznar.corrosion}}
+						</li>
+					</ul>
+				</div>
+				<div>
+					<!--<a href="#" class="btn btn-block btn-small btn-warning"> <span>Buy</span> </a> -->
+				</div>
+			</div>
+		</div>
+	</div>
+	{%endif%}
+	{%if puckorius is defined%}
+	<div class="span3 pricing-span">
+		<div class="widget-box pricing-box-small">
+			<div class="widget-header header-color-blue">
+				<h5 class="bigger lighter">&Iacute;ndice de Estabilidad de Puckorius </h5>
+			</div>
+			<div class="widget-body">
+				<div class="widget-main no-padding">
+					<ul class="unstyled list-striped pricing-table">
+						<li>
+							{{puckorius.valor}}
+						</li>
+						<li>
+							{{puckorius.parametro}}
+						</li>
+						<li>
+							{{puckorius.corrosion}}
+						</li>
+					</ul>
+				</div>
+				<div>
+					<!--<a href="#" class="btn btn-block btn-small btn-primary"> <span>Buy</span> </a>-->
+				</div>
+			</div>
+		</div>
+	</div>
+	{%endif%}
+</div>
+
+</div>
+<div class="row-fluid procesando-ocultar">
+	<div class="span12">
+		<div class="widget-box">
+			<div class="form-actions" codigo="8">
+				<button class="btn btn-info editar" type="button">
+					<i class="icon-pencil bigger-110"></i>
+					Editar
+				</button>
+				&nbsp; &nbsp; &nbsp;
+				<button class="btn imprimir" type="button">
+					<i class="icon-print bigger-110"></i>
+					Imprimir
+				</button>
+				&nbsp; &nbsp; &nbsp;
+				<button class="btn btn-success" type="button" onclick="document.location.href = panelControl">
+					<i class="icon-dashboard bigger-110"></i>
+					Panel de Control
+				</button>
+			</div>
+		</div>
+	</div>
+</div>
+{%endblock%} 

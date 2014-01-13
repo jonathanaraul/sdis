@@ -1,0 +1,1128 @@
+<input type="hidden" value="{{objeto.getId}}" id="idestudio" />
+<input type="hidden" value="{{objeto.getNombre}}" id="nombreestudio" />
+<input type="hidden" value="{{ultimo}}" id="ultimo" />
+<input type="hidden" value="{{trabajo}}" id="trabajo" />
+
+<form action="" method="post">
+	<fieldset id="cuadrof1" style="display:{%if primero == '1'%}block{%else%}none{%endif%}" class="{%if arregloOrdenes.0 == '0'%}invisible{%else%}visible{%endif%}{%if primero == '1'%} usado{%endif%}">
+		<input type="hidden" value="{%if a.0 !=null%}{{a.0.getId}}{%endif%}" id="idf1" />
+		<legend id="tituloFase">
+			Fase I:  Mudanza
+		</legend>
+		<div id="contenidof1">
+			<div class="cuadro1">
+				<div class="titulocuadro">
+					<label for="name" class="letranormal"> Tiempo productivo real total:</label>
+				</div>
+				<div class="entradacuadro">
+					<input type="text" class="entrada numero" name="nombre" value="{%if a.0 !=null%}{{a.0.tiempoproductivorealtotal}}{%endif%}" id="tiempoproductivorealtotal">
+				</div>
+				<div class="unidadcuadro">
+					<select class="selectcuadro">
+						{%for elemento in tiempo%} <option  value="{{elemento.id}}" {%if au[0][0] is defined and au[0][0] == elemento.id %}selected=""{%endif%} >{{elemento.nombre|title}}</option>
+						{%endfor%}
+					</select>
+				</div>
+			</div>
+			<div class="cuadro1">
+				<div class="titulocuadro">
+					<label for="name" class="letranormal">Tiempo real:</label>
+				</div>
+				<div class="entradacuadro">
+					<input type="text" class="entrada numero" name="nombre" value="{%if a.0 !=null%}{{a.0.tiempodeperforacionreal}}{%endif%}" id="tiempodeperforacionreal">
+				</div>
+				<div class="unidadcuadro">
+					<select class="selectcuadro">
+						{%for elemento in tiempo%} <option  value="{{elemento.id}}" {%if au[0][1] is defined and au[0][1] == elemento.id %}selected=""{%endif%} >{{elemento.nombre|title}}</option>
+						{%endfor%}
+					</select>
+				</div>
+			</div>
+			<div class="cuadro1">
+				<div class="titulocuadro">
+					<label for="name" class="letranormal"> Tiempo real entrega materiales:</label>
+				</div>
+				<div class="entradacuadro">
+					<input type="text" class="entrada numero" name="nombre" value="{%if a.0 !=null%}{{a.0.tiemporealentregamateriales}}{%endif%}" id="tiemporealentregamateriales">
+				</div>
+				<div class="unidadcuadro">
+					<select class="selectcuadro">
+						{%for elemento in tiempo%} <option  value="{{elemento.id}}" {%if au[0][2] is defined and au[0][2] == elemento.id %}selected=""{%endif%} >{{elemento.nombre|title}}</option>
+						{%endfor%}
+					</select>
+				</div>
+			</div>
+			<div class="cuadro1">
+				<div class="titulocuadro">
+					<label for="name" class="letranormal">Tiempo planificado entrega materiales:</label>
+				</div>
+				<div class="entradacuadro">
+					<input type="text" class="entrada numero" name="nombre" value="{%if a.0 !=null%}{{a.0.tiempoplanificadoentregamateriales}}{%endif%}" id="tiempoplanificadoentregamateriales">
+				</div>
+				<div class="unidadcuadro">
+					<select class="selectcuadro">
+						{%for elemento in tiempo%} <option  value="{{elemento.id}}" {%if au[0][3] is defined and au[0][3] == elemento.id %}selected=""{%endif%} >{{elemento.nombre|title}}</option>
+						{%endfor%}
+					</select>
+				</div>
+			</div>
+			<div class="cuadro1">
+				<div class="titulocuadro">
+					<label for="name" class="letranormal">Inversi&oacute;n real por actividad :</label>
+				</div>
+				<div class="entradacuadro">
+					<input type="text" class="entrada numero" name="nombre" value="{%if a.0 !=null%}{{a.0.inversionrealporactividad}}{%endif%}" id="inversionrealporactividad">
+				</div>
+				<div class="unidadcuadro">
+					<select class="selectcuadro">
+						{%for elemento in costos%} <option  value="{{elemento.id}}" {%if au[0][4] is defined and au[0][4] == elemento.id %}selected=""{%endif%} >{{elemento.nombre|title}}</option>
+						{%endfor%}
+					</select>
+				</div>
+			</div>
+			<div class="cuadro1">
+				<div class="titulocuadro">
+					<label for="name" class="letranormal">Inversi&oacute;n planificada por actividad:</label>
+				</div>
+				<div class="entradacuadro">
+					<input type="text" class="entrada numero" name="nombre" value="{%if a.0 !=null%}{{a.0.inversionplanificadaporactividad}}{%endif%}" id="inversionplanificadaporactividad">
+				</div>
+				<div class="unidadcuadro">
+					<select class="selectcuadro">
+						{%for elemento in costos%} <option  value="{{elemento.id}}" {%if au[0][5] is defined and au[0][5] == elemento.id %}selected=""{%endif%} >{{elemento.nombre|title}}</option>
+						{%endfor%}
+					</select>
+				</div>
+			</div>
+			<div class="botonera">
+				<a href="javascript:void(0)" class="botones cambiofase" tipo="verresultado" fase="2">Resultados</a>
+				{%if ultimo != 1%}<a href="javascript:void(0)" class="botones cambiofase" tipo="avanzar" fase="2">Siguiente</a>{%endif%} <a href="javascript:void(0)" class="botones guardarcomo" >Guardar C&oacute;mo</a>
+				<a href="javascript:void(0)" class="botones cancelarestudio" >Cancelar</a>
+			</div>
+		</div>
+		<img id="loaderf1" src="{{ asset('imagenes/loader.gif') }}" align="center" style="padding-top: 100px;padding-bottom: 100px;display: none;margin: auto;">
+	</fieldset>
+	<fieldset id="cuadrof2" style="display:{%if primero == '2'%}block{%else%}none{%endif%}" class="{%if arregloOrdenes.1 == '0'%}invisible{%else%}visible{%endif%}{%if primero == '2'%} usado{%endif%}">
+		<input type="hidden" value="{%if a.1 !=null%}{{a.1.getId}}{%endif%}" id="idf2" />
+		<legend id="tituloFase">
+			Fase II:  Perforaci&oacute;n del hoyo de 26 pulgadas
+		</legend>
+		<div id="contenidof2">
+			<div class="cuadro1">
+				<div class="titulocuadro">
+					<label for="name" class="letranormal"> Tiempo productivo real total:</label>
+				</div>
+				<div class="entradacuadro">
+					<input type="text" class="entrada numero" name="nombre" value="{%if a.1 !=null%}{{a.1.tiempoproductivorealtotal}}{%endif%}" id="tiempoproductivorealtotal">
+				</div>
+				<div class="unidadcuadro">
+					<select class="selectcuadro">
+						{%for elemento in tiempo%} <option  value="{{elemento.id}}" {%if au[1][0] is defined and au[1][0] == elemento.id %}selected=""{%endif%} >{{elemento.nombre|title}}</option>
+						{%endfor%}
+					</select>
+				</div>
+			</div>
+			<div class="cuadro1">
+				<div class="titulocuadro">
+					<label for="name" class="letranormal"> Tiempo real entrega materiales:</label>
+				</div>
+				<div class="entradacuadro">
+					<input type="text" class="entrada numero" name="nombre" value="{%if a.1 !=null%}{{a.1.tiemporealentregamateriales}}{%endif%}" id="tiemporealentregamateriales">
+				</div>
+				<div class="unidadcuadro">
+					<select class="selectcuadro">
+						{%for elemento in tiempo%} <option  value="{{elemento.id}}" {%if au[1][1] is defined and au[1][1] == elemento.id %}selected=""{%endif%} >{{elemento.nombre|title}}</option>
+						{%endfor%}
+					</select>
+				</div>
+			</div>
+			<div class="cuadro1">
+				<div class="titulocuadro">
+					<label for="name" class="letranormal">Tiempo planificado entrega materiales:</label>
+				</div>
+				<div class="entradacuadro">
+					<input type="text" class="entrada numero" name="nombre" value="{%if a.1 !=null%}{{a.1.tiempoplanificadoentregamateriales}}{%endif%}" id="tiempoplanificadoentregamateriales">
+				</div>
+				<div class="unidadcuadro">
+					<select class="selectcuadro">
+						{%for elemento in tiempo%} <option  value="{{elemento.id}}" {%if au[1][2] is defined and au[1][2] == elemento.id %}selected=""{%endif%} >{{elemento.nombre|title}}</option>
+						{%endfor%}
+					</select>
+				</div>
+			</div>
+			<div class="cuadro1">
+				<div class="titulocuadro">
+					<label for="name" class="letranormal">Profundidad en pies perforados reales:</label>
+				</div>
+				<div class="entradacuadro">
+					<input type="text" class="entrada numero" name="nombre" value="{%if a.1 !=null%}{{a.1.profundidadenpiesperforadosreales}}{%endif%}" id="profundidadenpiesperforadosreales">
+				</div>
+				<div class="unidadcuadro">
+					<select class="selectcuadro">
+						{%for elemento in profundidad%} <option  value="{{elemento.id}}" {%if au[1][3] is defined and au[1][3] == elemento.id %}selected=""{%endif%} >{{elemento.nombre|title}}</option>
+						{%endfor%}
+					</select>
+				</div>
+			</div>
+			<div class="cuadro1">
+				<div class="titulocuadro">
+					<label for="name" class="letranormal">Profundidad en pies planificados:</label>
+				</div>
+				<div class="entradacuadro">
+					<input type="text" class="entrada numero" name="nombre" value="{%if a.1 !=null%}{{a.1.profundidadenpiesplanificados}}{%endif%}" id="profundidadenpiesplanificados">
+				</div>
+				<div class="unidadcuadro">
+					<select class="selectcuadro">
+						{%for elemento in profundidad%} <option  value="{{elemento.id}}" {%if au[1][4] is defined and au[1][4] == elemento.id %}selected=""{%endif%} >{{elemento.nombre|title}}</option>
+						{%endfor%}
+					</select>
+				</div>
+			</div>
+			<div class="cuadro1">
+				<div class="titulocuadro">
+					<label for="name" class="letranormal">Tiempo de perforaci&oacute;n real:</label>
+				</div>
+				<div class="entradacuadro">
+					<input type="text" class="entrada numero" name="nombre" value="{%if a.1 !=null%}{{a.1.tiempodeperforacionreal}}{%endif%}" id="tiempodeperforacionreal">
+				</div>
+				<div class="unidadcuadro">
+					<select class="selectcuadro">
+						{%for elemento in tiempo%} <option  value="{{elemento.id}}" {%if au[1][5] is defined and au[1][5] == elemento.id %}selected=""{%endif%} >{{elemento.nombre|title}}</option>
+						{%endfor%}
+					</select>
+				</div>
+			</div>
+			<div class="cuadro1">
+				<div class="titulocuadro">
+					<label for="name" class="letranormal">Tiempo de perforaci&oacute;n planificado:</label>
+				</div>
+				<div class="entradacuadro">
+					<input type="text" class="entrada numero" name="nombre" value="{%if a.1 !=null%}{{a.1.tiempodeperforacionplanificado}}{%endif%}" id="tiempodeperforacionplanificado">
+				</div>
+				<div class="unidadcuadro">
+					<select class="selectcuadro">
+						{%for elemento in tiempo%} <option  value="{{elemento.id}}" {%if au[1][6] is defined and au[1][6] == elemento.id %}selected=""{%endif%} >{{elemento.nombre|title}}</option>
+						{%endfor%}
+					</select>
+				</div>
+			</div>
+			<div class="cuadro1">
+				<div class="titulocuadro">
+					<label for="name" class="letranormal">Inversi&oacute;n real por actividad:</label>
+				</div>
+				<div class="entradacuadro">
+					<input type="text" class="entrada numero" name="nombre" value="{%if a.1 !=null%}{{a.1.inversionrealporactividad}}{%endif%}" id="inversionrealporactividad">
+				</div>
+				<div class="unidadcuadro">
+					<select class="selectcuadro">
+						{%for elemento in costos%} <option  value="{{elemento.id}}" {%if au[1][7] is defined and au[1][7] == elemento.id %}selected=""{%endif%} >{{elemento.nombre|title}}</option>
+						{%endfor%}
+					</select>
+				</div>
+			</div>
+			<div class="cuadro1">
+				<div class="titulocuadro">
+					<label for="name" class="letranormal">Inversi&oacute;n planificada por actividad:</label>
+				</div>
+				<div class="entradacuadro">
+					<input type="text" class="entrada numero" name="nombre" value="{%if a.1 !=null%}{{a.1.inversionplanificadaporactividad}}{%endif%}" id="inversionplanificadaporactividad">
+				</div>
+				<div class="unidadcuadro">
+					<select class="selectcuadro">
+						{%for elemento in costos%} <option  value="{{elemento.id}}" {%if au[1][8] is defined and au[1][8] == elemento.id %}selected=""{%endif%} >{{elemento.nombre|title}}</option>
+						{%endfor%}
+					</select>
+				</div>
+			</div>
+			<div class="botonera">
+				<a href="javascript:void(0)" class="botones regresar" fase="2">Regresar</a>
+				<a href="javascript:void(0)" class="botones cambiofase" tipo="verresultado" fase="3">Resultados</a>
+				{%if ultimo != 2%}<a href="javascript:void(0)" class="botones cambiofase" tipo="avanzar" fase="3">Siguiente</a>{%endif%} <a href="javascript:void(0)" class="botones guardarcomo" >Guardar C&oacute;mo</a>
+				<a href="javascript:void(0)" class="botones cancelarestudio" >Cancelar</a>
+			</div>
+		</div>
+		<img id="loaderf2" src="{{ asset('imagenes/loader.gif') }}" align="center" style="padding-top: 100px;padding-bottom: 100px;display: none;margin: auto;">
+	</fieldset>
+	<fieldset id="cuadrof3" style="display:{%if primero == '3'%}block{%else%}none{%endif%}" class="{%if arregloOrdenes.2 == '0'%}invisible{%else%}visible{%endif%}{%if primero == '3'%} usado{%endif%}">
+		<input type="hidden" value="{%if a.2 !=null%}{{a.2.getId}}{%endif%}" id="idf3" />
+		<legend id="tituloFase">
+			Fase III:  Perforaci&oacute;n del hoyo de 17 <sup>1</sup>/<sub>2</sub> pulgadas
+		</legend>
+		<div id="contenidof3">
+			<div class="cuadro1">
+				<div class="titulocuadro">
+					<label for="name" class="letranormal"> Tiempo productivo real total:</label>
+				</div>
+				<div class="entradacuadro">
+					<input type="text" class="entrada numero" name="nombre" value="{%if a.2 !=null%}{{a.2.tiempoproductivorealtotal}}{%endif%}" id="tiempoproductivorealtotal">
+				</div>
+				<div class="unidadcuadro">
+					<select class="selectcuadro">
+						{%for elemento in tiempo%} <option  value="{{elemento.id}}" {%if au[2][0] is defined and au[2][0] == elemento.id %}selected=""{%endif%} >{{elemento.nombre|title}}</option>
+						{%endfor%}
+					</select>
+				</div>
+			</div>
+			<div class="cuadro1">
+				<div class="titulocuadro">
+					<label for="name" class="letranormal"> Tiempo real entrega materiales:</label>
+				</div>
+				<div class="entradacuadro">
+					<input type="text" class="entrada numero" name="nombre" value="{%if a.2 !=null%}{{a.2.tiemporealentregamateriales}}{%endif%}" id="tiemporealentregamateriales">
+				</div>
+				<div class="unidadcuadro">
+					<select class="selectcuadro">
+						{%for elemento in tiempo%} <option  value="{{elemento.id}}" {%if au[2][1] is defined and au[2][1] == elemento.id %}selected=""{%endif%} >{{elemento.nombre|title}}</option>
+						{%endfor%}
+					</select>
+				</div>
+			</div>
+			<div class="cuadro1">
+				<div class="titulocuadro">
+					<label for="name" class="letranormal">Tiempo planificado entrega materiales:</label>
+				</div>
+				<div class="entradacuadro">
+					<input type="text" class="entrada numero" name="nombre" value="{%if a.2 !=null%}{{a.2.tiempoplanificadoentregamateriales}}{%endif%}" id="tiempoplanificadoentregamateriales">
+				</div>
+				<div class="unidadcuadro">
+					<select class="selectcuadro">
+						{%for elemento in tiempo%} <option  value="{{elemento.id}}" {%if au[2][2] is defined and au[2][2] == elemento.id %}selected=""{%endif%} >{{elemento.nombre|title}}</option>
+						{%endfor%}
+					</select>
+				</div>
+			</div>
+			<div class="cuadro1">
+				<div class="titulocuadro">
+					<label for="name" class="letranormal">Profundidad en pies perforados reales:</label>
+				</div>
+				<div class="entradacuadro">
+					<input type="text" class="entrada numero" name="nombre" value="{%if a.2 !=null%}{{a.2.profundidadenpiesperforadosreales}}{%endif%}" id="profundidadenpiesperforadosreales">
+				</div>
+				<div class="unidadcuadro">
+					<select class="selectcuadro">
+						{%for elemento in profundidad%} <option  value="{{elemento.id}}" {%if au[2][3] is defined and au[2][3] == elemento.id %}selected=""{%endif%} >{{elemento.nombre|title}}</option>
+						{%endfor%}
+					</select>
+				</div>
+			</div>
+			<div class="cuadro1">
+				<div class="titulocuadro">
+					<label for="name" class="letranormal">Profundidad en pies planificados:</label>
+				</div>
+				<div class="entradacuadro">
+					<input type="text" class="entrada numero" name="nombre" value="{%if a.2 !=null%}{{a.2.profundidadenpiesplanificados}}{%endif%}" id="profundidadenpiesplanificados">
+				</div>
+				<div class="unidadcuadro">
+					<select class="selectcuadro">
+						{%for elemento in profundidad%} <option  value="{{elemento.id}}" {%if au[2][4] is defined and au[2][4] == elemento.id %}selected=""{%endif%} >{{elemento.nombre|title}}</option>
+						{%endfor%}
+					</select>
+				</div>
+			</div>
+			<div class="cuadro1">
+				<div class="titulocuadro">
+					<label for="name" class="letranormal">Tiempo de perforaci&oacute;n real:</label>
+				</div>
+				<div class="entradacuadro">
+					<input type="text" class="entrada numero" name="nombre" value="{%if a.2 !=null%}{{a.2.tiempodeperforacionreal}}{%endif%}" id="tiempodeperforacionreal">
+				</div>
+				<div class="unidadcuadro">
+					<select class="selectcuadro">
+						{%for elemento in tiempo%} <option  value="{{elemento.id}}" {%if au[2][5] is defined and au[2][5] == elemento.id %}selected=""{%endif%} >{{elemento.nombre|title}}</option>
+						{%endfor%}
+					</select>
+				</div>
+			</div>
+			<div class="cuadro1">
+				<div class="titulocuadro">
+					<label for="name" class="letranormal">Tiempo de perforaci&oacute;n planificado:</label>
+				</div>
+				<div class="entradacuadro">
+					<input type="text" class="entrada numero" name="nombre" value="{%if a.2 !=null%}{{a.2.tiempodeperforacionplanificado}}{%endif%}" id="tiempodeperforacionplanificado">
+				</div>
+				<div class="unidadcuadro">
+					<select class="selectcuadro">
+						{%for elemento in tiempo%} <option  value="{{elemento.id}}" {%if au[2][6] is defined and au[2][6] == elemento.id %}selected=""{%endif%} >{{elemento.nombre|title}}</option>
+						{%endfor%}
+					</select>
+				</div>
+			</div>
+			<div class="cuadro1">
+				<div class="titulocuadro">
+					<label for="name" class="letranormal">Inversi&oacute;n real por actividad:</label>
+				</div>
+				<div class="entradacuadro">
+					<input type="text" class="entrada numero" name="nombre" value="{%if a.2 !=null%}{{a.2.inversionrealporactividad}}{%endif%}" id="inversionrealporactividad">
+				</div>
+				<div class="unidadcuadro">
+					<select class="selectcuadro">
+						{%for elemento in costos%} <option  value="{{elemento.id}}" {%if au[2][7] is defined and au[2][7] == elemento.id %}selected=""{%endif%} >{{elemento.nombre|title}}</option>
+						{%endfor%}
+					</select>
+				</div>
+			</div>
+			<div class="cuadro1">
+				<div class="titulocuadro">
+					<label for="name" class="letranormal">Inversi&oacute;n planificada por actividad:</label>
+				</div>
+				<div class="entradacuadro">
+					<input type="text" class="entrada numero" name="nombre" value="{%if a.2 !=null%}{{a.2.inversionplanificadaporactividad}}{%endif%}" id="inversionplanificadaporactividad">
+				</div>
+				<div class="unidadcuadro">
+					<select class="selectcuadro">
+						{%for elemento in costos%} <option  value="{{elemento.id}}" {%if au[2][8] is defined and au[2][8] == elemento.id %}selected=""{%endif%} >{{elemento.nombre|title}}</option>
+						{%endfor%}
+					</select>
+				</div>
+			</div>
+			<div class="botonera">
+				<a href="javascript:void(0)" class="botones regresar" fase="3">Regresar</a>
+				<a href="javascript:void(0)" class="botones cambiofase" tipo="verresultado" fase="4">Resultados</a>
+				{%if ultimo != 3%}<a href="javascript:void(0)" class="botones cambiofase" tipo="avanzar" fase="4">Siguiente</a>{%endif%} <a href="javascript:void(0)" class="botones guardarcomo" >Guardar C&oacute;mo</a>
+				<a href="javascript:void(0)" class="botones cancelarestudio" >Cancelar</a>
+			</div>
+		</div>
+		<img id="loaderf3" src="{{ asset('imagenes/loader.gif') }}" align="center" style="padding-top: 100px;padding-bottom: 100px;display: none;margin: auto;">
+	</fieldset>
+	<fieldset id="cuadrof4" style="display:{%if primero == '4'%}block{%else%}none{%endif%}" class="{%if arregloOrdenes.3 == '0'%}invisible{%else%}visible{%endif%}{%if primero == '4'%} usado{%endif%}">
+		<input type="hidden" value="{%if a.3 !=null%}{{a.3.getId}}{%endif%}" id="idf4" />
+		<legend id="tituloFase">
+			Fase IV:  Perforaci&oacute;n del hoyo de 12 <sup>1</sup>/<sub>4</sub> pulgadas
+		</legend>
+		<div id="contenidof4">
+			<div class="cuadro1">
+				<div class="titulocuadro">
+					<label for="name" class="letranormal"> Tiempo productivo real total:</label>
+				</div>
+				<div class="entradacuadro">
+					<input type="text" class="entrada numero" name="nombre" value="{%if a.3 !=null%}{{a.3.tiempoproductivorealtotal}}{%endif%}" id="tiempoproductivorealtotal">
+				</div>
+				<div class="unidadcuadro">
+					<select class="selectcuadro">
+						{%for elemento in tiempo%} <option  value="{{elemento.id}}" {%if au[3][0] is defined and au[3][0] == elemento.id %}selected=""{%endif%} >{{elemento.nombre|title}}</option>
+						{%endfor%}
+					</select>
+				</div>
+			</div>
+			<div class="cuadro1">
+				<div class="titulocuadro">
+					<label for="name" class="letranormal"> Tiempo real entrega materiales:</label>
+				</div>
+				<div class="entradacuadro">
+					<input type="text" class="entrada numero" name="nombre" value="{%if a.3 !=null%}{{a.3.tiemporealentregamateriales}}{%endif%}" id="tiemporealentregamateriales">
+				</div>
+				<div class="unidadcuadro">
+					<select class="selectcuadro">
+						{%for elemento in tiempo%} <option  value="{{elemento.id}}" {%if au[3][1] is defined and au[3][1] == elemento.id %}selected=""{%endif%} >{{elemento.nombre|title}}</option>
+						{%endfor%}
+					</select>
+				</div>
+			</div>
+			<div class="cuadro1">
+				<div class="titulocuadro">
+					<label for="name" class="letranormal">Tiempo planificado entrega materiales:</label>
+				</div>
+				<div class="entradacuadro">
+					<input type="text" class="entrada numero" name="nombre" value="{%if a.3 !=null%}{{a.3.tiempoplanificadoentregamateriales}}{%endif%}" id="tiempoplanificadoentregamateriales">
+				</div>
+				<div class="unidadcuadro">
+					<select class="selectcuadro">
+						{%for elemento in tiempo%} <option  value="{{elemento.id}}" {%if au[3][2] is defined and au[3][2] == elemento.id %}selected=""{%endif%} >{{elemento.nombre|title}}</option>
+						{%endfor%}
+					</select>
+				</div>
+			</div>
+			<div class="cuadro1">
+				<div class="titulocuadro">
+					<label for="name" class="letranormal">Profundidad en pies perforados reales:</label>
+				</div>
+				<div class="entradacuadro">
+					<input type="text" class="entrada numero" name="nombre" value="{%if a.3 !=null%}{{a.3.profundidadenpiesperforadosreales}}{%endif%}" id="profundidadenpiesperforadosreales">
+				</div>
+				<div class="unidadcuadro">
+					<select class="selectcuadro">
+						{%for elemento in profundidad%} <option  value="{{elemento.id}}" {%if au[3][3] is defined and au[3][3] == elemento.id %}selected=""{%endif%} >{{elemento.nombre|title}}</option>
+						{%endfor%}
+					</select>
+				</div>
+			</div>
+			<div class="cuadro1">
+				<div class="titulocuadro">
+					<label for="name" class="letranormal">Profundidad en pies planificados:</label>
+				</div>
+				<div class="entradacuadro">
+					<input type="text" class="entrada numero" name="nombre" value="{%if a.3 !=null%}{{a.3.profundidadenpiesplanificados}}{%endif%}" id="profundidadenpiesplanificados">
+				</div>
+				<div class="unidadcuadro">
+					<select class="selectcuadro">
+						{%for elemento in profundidad%} <option  value="{{elemento.id}}" {%if au[3][4] is defined and au[3][4] == elemento.id %}selected=""{%endif%} >{{elemento.nombre|title}}</option>
+						{%endfor%}
+					</select>
+				</div>
+			</div>
+			<div class="cuadro1">
+				<div class="titulocuadro">
+					<label for="name" class="letranormal">Tiempo de perforaci&oacute;n real:</label>
+				</div>
+				<div class="entradacuadro">
+					<input type="text" class="entrada numero" name="nombre" value="{%if a.3 !=null%}{{a.3.tiempodeperforacionreal}}{%endif%}" id="tiempodeperforacionreal">
+				</div>
+				<div class="unidadcuadro">
+					<select class="selectcuadro">
+						{%for elemento in tiempo%} <option  value="{{elemento.id}}" {%if au[3][5] is defined and au[3][5] == elemento.id %}selected=""{%endif%} >{{elemento.nombre|title}}</option>
+						{%endfor%}
+					</select>
+				</div>
+			</div>
+			<div class="cuadro1">
+				<div class="titulocuadro">
+					<label for="name" class="letranormal">Tiempo de perforaci&oacute;n planificado:</label>
+				</div>
+				<div class="entradacuadro">
+					<input type="text" class="entrada numero" name="nombre" value="{%if a.3 !=null%}{{a.3.tiempodeperforacionplanificado}}{%endif%}" id="tiempodeperforacionplanificado">
+				</div>
+				<div class="unidadcuadro">
+					<select class="selectcuadro">
+						{%for elemento in tiempo%} <option  value="{{elemento.id}}" {%if au[3][6] is defined and au[3][6] == elemento.id %}selected=""{%endif%} >{{elemento.nombre|title}}</option>
+						{%endfor%}
+					</select>
+				</div>
+			</div>
+			<div class="cuadro1">
+				<div class="titulocuadro">
+					<label for="name" class="letranormal">Tiempo de actividades cr&iacute;ticas ejecutadas:</label>
+				</div>
+				<div class="entradacuadro">
+					<input type="text" class="entrada numero" name="nombre" value="{%if a.3 !=null%}{{a.3.tiempodeactividadescriticasejecutadas}}{%endif%}" id="tiempodeactividadescriticasejecutadas">
+				</div>
+				<div class="unidadcuadro">
+					<select class="selectcuadro">
+						{%for elemento in tiempo%} <option  value="{{elemento.id}}" {%if au[3][7] is defined and au[3][7] == elemento.id %}selected=""{%endif%} >{{elemento.nombre|title}}</option>
+						{%endfor%}
+					</select>
+				</div>
+			</div>
+			<div class="cuadro1">
+				<div class="titulocuadro">
+					<label for="name" class="letranormal">Inversi&oacute;n real por actividad:</label>
+				</div>
+				<div class="entradacuadro">
+					<input type="text" class="entrada numero" name="nombre" value="{%if a.3 !=null%}{{a.3.inversionrealporactividad}}{%endif%}" id="inversionrealporactividad">
+				</div>
+				<div class="unidadcuadro">
+					<select class="selectcuadro">
+						{%for elemento in costos%} <option  value="{{elemento.id}}" {%if au[3][8] is defined and au[3][8] == elemento.id %}selected=""{%endif%} >{{elemento.nombre|title}}</option>
+						{%endfor%}
+					</select>
+				</div>
+			</div>
+			<div class="cuadro1">
+				<div class="titulocuadro">
+					<label for="name" class="letranormal">Inversi&oacute;n planificada por actividad:</label>
+				</div>
+				<div class="entradacuadro">
+					<input type="text" class="entrada numero" name="nombre" value="{%if a.3 !=null%}{{a.3.inversionplanificadaporactividad}}{%endif%}" id="inversionplanificadaporactividad">
+				</div>
+				<div class="unidadcuadro">
+					<select class="selectcuadro">
+						{%for elemento in costos%} <option  value="{{elemento.id}}" {%if au[3][9] is defined and au[3][9] == elemento.id %}selected=""{%endif%} >{{elemento.nombre|title}}</option>
+						{%endfor%}
+					</select>
+				</div>
+			</div>
+			<div class="botonera">
+				<a href="javascript:void(0)" class="botones regresar" fase="4">Regresar</a>
+				<a href="javascript:void(0)" class="botones cambiofase" tipo="verresultado" fase="5">Resultados</a>
+				{%if ultimo != 4%}<a href="javascript:void(0)" class="botones cambiofase" tipo="avanzar" fase="5">Siguiente</a>{%endif%} <a href="javascript:void(0)" class="botones guardarcomo" >Guardar C&oacute;mo</a>
+				<a href="javascript:void(0)" class="botones cancelarestudio" >Cancelar</a>
+			</div>
+		</div>
+		<img id="loaderf4" src="{{ asset('imagenes/loader.gif') }}" align="center" style="padding-top: 100px;padding-bottom: 100px;display: none;margin: auto;">
+	</fieldset>
+	<fieldset id="cuadrof5" style="display:{%if primero == '5'%}block{%else%}none{%endif%}" class="{%if arregloOrdenes.4 == '0'%}invisible{%else%}visible{%endif%}{%if primero == '5'%} usado{%endif%}">
+		<input type="hidden" value="{%if a.4 !=null%}{{a.4.getId}}{%endif%}" id="idf5" />
+		<legend id="tituloFase">
+			Fase V:  Perforaci&oacute;n del hoyo de 8 <sup>3</sup>/<sub>8</sub> pulgadas.
+		</legend>
+		<div id="contenidof5">
+			<div class="cuadro1">
+				<div class="titulocuadro">
+					<label for="name" class="letranormal"> Tiempo productivo real total:</label>
+				</div>
+				<div class="entradacuadro">
+					<input type="text" class="entrada numero" name="nombre" value="{%if a.4 !=null%}{{a.4.tiempoproductivorealtotal}}{%endif%}" id="tiempoproductivorealtotal">
+				</div>
+				<div class="unidadcuadro">
+					<select class="selectcuadro">
+						{%for elemento in tiempo%} <option  value="{{elemento.id}}" {%if au[4][0] is defined and au[4][0] == elemento.id %}selected=""{%endif%} >{{elemento.nombre|title}}</option>
+						{%endfor%}
+					</select>
+				</div>
+			</div>
+			<div class="cuadro1">
+				<div class="titulocuadro">
+					<label for="name" class="letranormal"> Tiempo real entrega materiales:</label>
+				</div>
+				<div class="entradacuadro">
+					<input type="text" class="entrada numero" name="nombre" value="{%if a.4 !=null%}{{a.4.tiemporealentregamateriales}}{%endif%}" id="tiemporealentregamateriales">
+				</div>
+				<div class="unidadcuadro">
+					<select class="selectcuadro">
+						{%for elemento in tiempo%} <option  value="{{elemento.id}}" {%if au[4][1] is defined and au[4][1] == elemento.id %}selected=""{%endif%} >{{elemento.nombre|title}}</option>
+						{%endfor%}
+					</select>
+				</div>
+			</div>
+			<div class="cuadro1">
+				<div class="titulocuadro">
+					<label for="name" class="letranormal">Tiempo planificado entrega materiales:</label>
+				</div>
+				<div class="entradacuadro">
+					<input type="text" class="entrada numero" name="nombre" value="{%if a.4 !=null%}{{a.4.tiempoplanificadoentregamateriales}}{%endif%}" id="tiempoplanificadoentregamateriales">
+				</div>
+				<div class="unidadcuadro">
+					<select class="selectcuadro">
+						{%for elemento in tiempo%} <option  value="{{elemento.id}}" {%if au[4][2] is defined and au[4][2] == elemento.id %}selected=""{%endif%} >{{elemento.nombre|title}}</option>
+						{%endfor%}
+					</select>
+				</div>
+			</div>
+			<div class="cuadro1">
+				<div class="titulocuadro">
+					<label for="name" class="letranormal">Profundidad en pies perforados reales:</label>
+				</div>
+				<div class="entradacuadro">
+					<input type="text" class="entrada numero" name="nombre" value="{%if a.4 !=null%}{{a.4.profundidadenpiesperforadosreales}}{%endif%}" id="profundidadenpiesperforadosreales">
+				</div>
+				<div class="unidadcuadro">
+					<select class="selectcuadro">
+						{%for elemento in profundidad%} <option  value="{{elemento.id}}" {%if au[4][3] is defined and au[4][3] == elemento.id %}selected=""{%endif%} >{{elemento.nombre|title}}</option>
+						{%endfor%}
+					</select>
+				</div>
+			</div>
+			<div class="cuadro1">
+				<div class="titulocuadro">
+					<label for="name" class="letranormal">Profundidad en pies planificados:</label>
+				</div>
+				<div class="entradacuadro">
+					<input type="text" class="entrada numero" name="nombre" value="{%if a.4 !=null%}{{a.4.profundidadenpiesplanificados}}{%endif%}" id="profundidadenpiesplanificados">
+				</div>
+				<div class="unidadcuadro">
+					<select class="selectcuadro">
+						{%for elemento in profundidad%} <option  value="{{elemento.id}}" {%if au[4][4] is defined and au[4][4] == elemento.id %}selected=""{%endif%} >{{elemento.nombre|title}}</option>
+						{%endfor%}
+					</select>
+				</div>
+			</div>
+			<div class="cuadro1">
+				<div class="titulocuadro">
+					<label for="name" class="letranormal">Tiempo de perforaci&oacute;n real:</label>
+				</div>
+				<div class="entradacuadro">
+					<input type="text" class="entrada numero" name="nombre" value="{%if a.4 !=null%}{{a.4.tiempodeperforacionreal}}{%endif%}" id="tiempodeperforacionreal">
+				</div>
+				<div class="unidadcuadro">
+					<select class="selectcuadro">
+						{%for elemento in tiempo%} <option  value="{{elemento.id}}" {%if au[4][5] is defined and au[4][5] == elemento.id %}selected=""{%endif%} >{{elemento.nombre|title}}</option>
+						{%endfor%}
+					</select>
+				</div>
+			</div>
+			<div class="cuadro1">
+				<div class="titulocuadro">
+					<label for="name" class="letranormal">Tiempo de perforaci&oacute;n planificado:</label>
+				</div>
+				<div class="entradacuadro">
+					<input type="text" class="entrada numero" name="nombre" value="{%if a.4 !=null%}{{a.4.tiempodeperforacionplanificado}}{%endif%}" id="tiempodeperforacionplanificado">
+				</div>
+				<div class="unidadcuadro">
+					<select class="selectcuadro">
+						{%for elemento in tiempo%} <option  value="{{elemento.id}}" {%if au[4][6] is defined and au[4][6] == elemento.id %}selected=""{%endif%} >{{elemento.nombre|title}}</option>
+						{%endfor%}
+					</select>
+				</div>
+			</div>
+			<div class="cuadro1">
+				<div class="titulocuadro">
+					<label for="name" class="letranormal">Tiempo de actividades cr&iacute;ticas ejecutadas:</label>
+				</div>
+				<div class="entradacuadro">
+					<input type="text" class="entrada numero" name="nombre" value="{%if a.4 !=null%}{{a.4.tiempodeactividadescriticasejecutadas}}{%endif%}" id="tiempodeactividadescriticasejecutadas">
+				</div>
+				<div class="unidadcuadro">
+					<select class="selectcuadro">
+						{%for elemento in tiempo%} <option  value="{{elemento.id}}" {%if au[4][7] is defined and au[4][7] == elemento.id %}selected=""{%endif%} >{{elemento.nombre|title}}</option>
+						{%endfor%}
+					</select>
+				</div>
+			</div>
+			<div class="cuadro1">
+				<div class="titulocuadro">
+					<label for="name" class="letranormal">Inversi&oacute;n real por actividad:</label>
+				</div>
+				<div class="entradacuadro">
+					<input type="text" class="entrada numero" name="nombre" value="{%if a.4 !=null%}{{a.4.inversionrealporactividad}}{%endif%}" id="inversionrealporactividad">
+				</div>
+				<div class="unidadcuadro">
+					<select class="selectcuadro">
+						{%for elemento in costos%} <option  value="{{elemento.id}}" {%if au[4][8] is defined and au[4][8] == elemento.id %}selected=""{%endif%} >{{elemento.nombre|title}}</option>
+						{%endfor%}
+					</select>
+				</div>
+			</div>
+			<div class="cuadro1">
+				<div class="titulocuadro">
+					<label for="name" class="letranormal">Inversi&oacute;n planificada por actividad:</label>
+				</div>
+				<div class="entradacuadro">
+					<input type="text" class="entrada numero" name="nombre" value="{%if a.4 !=null%}{{a.4.inversionplanificadaporactividad}}{%endif%}" id="inversionplanificadaporactividad">
+				</div>
+				<div class="unidadcuadro">
+					<select class="selectcuadro">
+						{%for elemento in costos%} <option  value="{{elemento.id}}" {%if au[4][9] is defined and au[4][9] == elemento.id %}selected=""{%endif%} >{{elemento.nombre|title}}</option>
+						{%endfor%}
+					</select>
+				</div>
+			</div>
+			<div class="botonera">
+				<a href="javascript:void(0)" class="botones regresar" fase="5">Regresar</a>
+				<a href="javascript:void(0)" class="botones cambiofase" tipo="verresultado" fase="6">Resultados</a>
+				{%if ultimo != 5%}<a href="javascript:void(0)" class="botones cambiofase" tipo="avanzar" fase="6">Siguiente</a>{%endif%} <a href="javascript:void(0)" class="botones guardarcomo" >Guardar C&oacute;mo</a>
+				<a href="javascript:void(0)" class="botones cancelarestudio" >Cancelar</a>
+			</div>
+		</div>
+		<img id="loaderf5" src="{{ asset('imagenes/loader.gif') }}" align="center" style="padding-top: 100px;padding-bottom: 100px;display: none;margin: auto;">
+	</fieldset>
+	<fieldset id="cuadrof6" style="display:{%if primero == '6'%}block{%else%}none{%endif%}" class="{%if arregloOrdenes.5 == '0'%}invisible{%else%}visible{%endif%}{%if primero == '6'%} usado{%endif%}">
+		<input type="hidden" value="{%if a.5 !=null%}{{a.5.getId}}{%endif%}" id="idf6" />
+		<legend id="tituloFase">
+			Fase VI:  Perforaci&oacute;n del hoyo de 6 <sup>1</sup>/<sub>2</sub> pulgadas
+		</legend>
+		<div id="contenidof6">
+			<div class="cuadro1">
+				<div class="titulocuadro">
+					<label for="name" class="letranormal"> Tiempo productivo real total:</label>
+				</div>
+				<div class="entradacuadro">
+					<input type="text" class="entrada numero" name="nombre" value="{%if a.5 !=null%}{{a.5.tiempoproductivorealtotal}}{%endif%}" id="tiempoproductivorealtotal">
+				</div>
+				<div class="unidadcuadro">
+					<select class="selectcuadro">
+						{%for elemento in tiempo%} <option  value="{{elemento.id}}" {%if au[5][0] is defined and au[5][0] == elemento.id %}selected=""{%endif%} >{{elemento.nombre|title}}</option>
+						{%endfor%}
+					</select>
+				</div>
+			</div>
+			<div class="cuadro1">
+				<div class="titulocuadro">
+					<label for="name" class="letranormal"> Tiempo real entrega materiales:</label>
+				</div>
+				<div class="entradacuadro">
+					<input type="text" class="entrada numero" name="nombre" value="{%if a.5 !=null%}{{a.5.tiemporealentregamateriales}}{%endif%}" id="tiemporealentregamateriales">
+				</div>
+				<div class="unidadcuadro">
+					<select class="selectcuadro">
+						{%for elemento in tiempo%} <option  value="{{elemento.id}}" {%if au[5][1] is defined and au[5][1] == elemento.id %}selected=""{%endif%} >{{elemento.nombre|title}}</option>
+						{%endfor%}
+					</select>
+				</div>
+			</div>
+			<div class="cuadro1">
+				<div class="titulocuadro">
+					<label for="name" class="letranormal">Tiempo planificado entrega materiales:</label>
+				</div>
+				<div class="entradacuadro">
+					<input type="text" class="entrada numero" name="nombre" value="{%if a.5 !=null%}{{a.5.tiempoplanificadoentregamateriales}}{%endif%}" id="tiempoplanificadoentregamateriales">
+				</div>
+				<div class="unidadcuadro">
+					<select class="selectcuadro">
+						{%for elemento in tiempo%} <option  value="{{elemento.id}}" {%if au[5][2] is defined and au[5][2] == elemento.id %}selected=""{%endif%} >{{elemento.nombre|title}}</option>
+						{%endfor%}
+					</select>
+				</div>
+			</div>
+			<div class="cuadro1">
+				<div class="titulocuadro">
+					<label for="name" class="letranormal">Profundidad en pies perforados reales:</label>
+				</div>
+				<div class="entradacuadro">
+					<input type="text" class="entrada numero" name="nombre" value="{%if a.5 !=null%}{{a.5.profundidadenpiesperforadosreales}}{%endif%}" id="profundidadenpiesperforadosreales">
+				</div>
+				<div class="unidadcuadro">
+					<select class="selectcuadro">
+						{%for elemento in profundidad%} <option  value="{{elemento.id}}" {%if au[5][3] is defined and au[5][3] == elemento.id %}selected=""{%endif%} >{{elemento.nombre|title}}</option>
+						{%endfor%}
+					</select>
+				</div>
+			</div>
+			<div class="cuadro1">
+				<div class="titulocuadro">
+					<label for="name" class="letranormal">Profundidad en pies planificados:</label>
+				</div>
+				<div class="entradacuadro">
+					<input type="text" class="entrada numero" name="nombre" value="{%if a.5 !=null%}{{a.5.profundidadenpiesplanificados}}{%endif%}" id="profundidadenpiesplanificados">
+				</div>
+				<div class="unidadcuadro">
+					<select class="selectcuadro">
+						{%for elemento in profundidad%} <option  value="{{elemento.id}}" {%if au[5][4] is defined and au[5][4] == elemento.id %}selected=""{%endif%} >{{elemento.nombre|title}}</option>
+						{%endfor%}
+					</select>
+				</div>
+			</div>
+			<div class="cuadro1">
+				<div class="titulocuadro">
+					<label for="name" class="letranormal">Tiempo de perforaci&oacute;n real:</label>
+				</div>
+				<div class="entradacuadro">
+					<input type="text" class="entrada numero" name="nombre" value="{%if a.5 !=null%}{{a.5.tiempodeperforacionreal}}{%endif%}" id="tiempodeperforacionreal">
+				</div>
+				<div class="unidadcuadro">
+					<select class="selectcuadro">
+						{%for elemento in tiempo%} <option  value="{{elemento.id}}" {%if au[5][5] is defined and au[5][5] == elemento.id %}selected=""{%endif%} >{{elemento.nombre|title}}</option>
+						{%endfor%}
+					</select>
+				</div>
+			</div>
+			<div class="cuadro1">
+				<div class="titulocuadro">
+					<label for="name" class="letranormal">Tiempo de perforaci&oacute;n planificado:</label>
+				</div>
+				<div class="entradacuadro">
+					<input type="text" class="entrada numero" name="nombre" value="{%if a.5 !=null%}{{a.5.tiempodeperforacionplanificado}}{%endif%}" id="tiempodeperforacionplanificado">
+				</div>
+				<div class="unidadcuadro">
+					<select class="selectcuadro">
+						{%for elemento in tiempo%} <option  value="{{elemento.id}}" {%if au[5][6] is defined and au[5][6] == elemento.id %}selected=""{%endif%} >{{elemento.nombre|title}}</option>
+						{%endfor%}
+					</select>
+				</div>
+			</div>
+			<div class="cuadro1">
+				<div class="titulocuadro">
+					<label for="name" class="letranormal">Tiempo de actividades cr&iacute;ticas ejecutadas:</label>
+				</div>
+				<div class="entradacuadro">
+					<input type="text" class="entrada numero" name="nombre" value="{%if a.5 !=null%}{{a.5.tiempodeactividadescriticasejecutadas}}{%endif%}" id="tiempodeactividadescriticasejecutadas">
+				</div>
+				<div class="unidadcuadro">
+					<select class="selectcuadro">
+						{%for elemento in tiempo%} <option  value="{{elemento.id}}" {%if au[5][7] is defined and au[5][7] == elemento.id %}selected=""{%endif%} >{{elemento.nombre|title}}</option>
+						{%endfor%}
+					</select>
+				</div>
+			</div>
+			<div class="cuadro1">
+				<div class="titulocuadro">
+					<label for="name" class="letranormal">Inversi&oacute;n real por actividad:</label>
+				</div>
+				<div class="entradacuadro">
+					<input type="text" class="entrada numero" name="nombre" value="{%if a.5 !=null%}{{a.5.inversionrealporactividad}}{%endif%}" id="inversionrealporactividad">
+				</div>
+				<div class="unidadcuadro">
+					<select class="selectcuadro">
+						{%for elemento in costos%} <option  value="{{elemento.id}}" {%if au[5][8] is defined and au[5][8] == elemento.id %}selected=""{%endif%} >{{elemento.nombre|title}}</option>
+						{%endfor%}
+					</select>
+				</div>
+			</div>
+			<div class="cuadro1">
+				<div class="titulocuadro">
+					<label for="name" class="letranormal">Inversi&oacute;n planificada por actividad:</label>
+				</div>
+				<div class="entradacuadro">
+					<input type="text" class="entrada numero" name="nombre" value="{%if a.5 !=null%}{{a.5.inversionplanificadaporactividad}}{%endif%}" id="inversionplanificadaporactividad">
+				</div>
+				<div class="unidadcuadro">
+					<select class="selectcuadro">
+						{%for elemento in costos%} <option  value="{{elemento.id}}" {%if au[5][9] is defined and au[5][9] == elemento.id %}selected=""{%endif%} >{{elemento.nombre|title}}</option>
+						{%endfor%}
+					</select>
+				</div>
+			</div>
+			<div class="botonera">
+				<a href="javascript:void(0)" class="botones regresar" fase="6">Regresar</a>
+				<a href="javascript:void(0)" class="botones cambiofase" tipo="verresultado" fase="7">Resultados</a>
+				{%if ultimo != 6%}<a href="javascript:void(0)" class="botones cambiofase" tipo="avanzar" fase="7">Siguiente</a>{%endif%} <a href="javascript:void(0)" class="botones guardarcomo" >Guardar C&oacute;mo</a>
+				<a href="javascript:void(0)" class="botones cancelarestudio" >Cancelar</a>
+			</div>
+		</div>
+		<img id="loaderf6" src="{{ asset('imagenes/loader.gif') }}" align="center" style="padding-top: 100px;padding-bottom: 100px;display: none;margin: auto;">
+	</fieldset>
+	<fieldset id="cuadrof7" style="display:{%if primero == '7'%}block{%else%}none{%endif%}" class="{%if arregloOrdenes.6 == '0'%}invisible{%else%}visible{%endif%}{%if primero == '7'%} usado{%endif%}">
+		<input type="hidden" value="{%if a.6 !=null%}{{a.6.getId}}{%endif%}" id="idf7" />
+		<legend id="tituloFase">
+			Fase VII:  Completaci&oacute;n del pozo.
+		</legend>
+		<div id="contenidof7">
+			<div class="cuadro1">
+				<div class="titulocuadro">
+					<label for="name" class="letranormal"> Tiempo productivo real total:</label>
+				</div>
+				<div class="entradacuadro">
+					<input type="text" class="entrada numero" name="nombre" value="{%if a.6 !=null%}{{a.6.tiempoproductivorealtotal}}{%endif%}" id="tiempoproductivorealtotal">
+				</div>
+				<div class="unidadcuadro">
+					<select class="selectcuadro">
+						{%for elemento in tiempo%} <option  value="{{elemento.id}}" {%if au[6][0] is defined and au[6][0] == elemento.id %}selected=""{%endif%} >{{elemento.nombre|title}}</option>
+						{%endfor%}
+					</select>
+				</div>
+			</div>
+			<div class="cuadro1">
+				<div class="titulocuadro">
+					<label for="name" class="letranormal">Tiempo real:</label>
+				</div>
+				<div class="entradacuadro">
+					<input type="text" class="entrada numero" name="nombre" value="{%if a.6 !=null%}{{a.6.tiempodeperforacionreal}}{%endif%}" id="tiempodeperforacionreal">
+				</div>
+				<div class="unidadcuadro">
+					<select class="selectcuadro">
+						{%for elemento in tiempo%} <option  value="{{elemento.id}}" {%if au[6][1] is defined and au[6][1] == elemento.id %}selected=""{%endif%} >{{elemento.nombre|title}}</option>
+						{%endfor%}
+					</select>
+				</div>
+			</div>
+			<div class="cuadro1">
+				<div class="titulocuadro">
+					<label for="name" class="letranormal"> Tiempo real entrega materiales:</label>
+				</div>
+				<div class="entradacuadro">
+					<input type="text" class="entrada numero" name="nombre" value="{%if a.6 !=null%}{{a.6.tiemporealentregamateriales}}{%endif%}" id="tiemporealentregamateriales">
+				</div>
+				<div class="unidadcuadro">
+					<select class="selectcuadro">
+						{%for elemento in tiempo%} <option  value="{{elemento.id}}" {%if au[6][2] is defined and au[6][2] == elemento.id %}selected=""{%endif%} >{{elemento.nombre|title}}</option>
+						{%endfor%}
+					</select>
+				</div>
+			</div>
+			<div class="cuadro1">
+				<div class="titulocuadro">
+					<label for="name" class="letranormal">Tiempo planificado entrega materiales:</label>
+				</div>
+				<div class="entradacuadro">
+					<input type="text" class="entrada numero" name="nombre" value="{%if a.6 !=null%}{{a.6.tiempoplanificadoentregamateriales}}{%endif%}" id="tiempoplanificadoentregamateriales">
+				</div>
+				<div class="unidadcuadro">
+					<select class="selectcuadro">
+						{%for elemento in tiempo%} <option  value="{{elemento.id}}" {%if au[6][3] is defined and au[6][3] == elemento.id %}selected=""{%endif%} >{{elemento.nombre|title}}</option>
+						{%endfor%}
+					</select>
+				</div>
+			</div>
+			<div class="cuadro1">
+				<div class="titulocuadro">
+					<label for="name" class="letranormal">Tiempo de actividades cr&iacute;ticas ejecutadas:</label>
+				</div>
+				<div class="entradacuadro">
+					<input type="text" class="entrada numero" name="nombre" value="{%if a.6 !=null%}{{a.6.tiempodeactividadescriticasejecutadas}}{%endif%}" id="tiempodeactividadescriticasejecutadas">
+				</div>
+				<div class="unidadcuadro">
+					<select class="selectcuadro">
+						{%for elemento in tiempo%} <option  value="{{elemento.id}}" {%if au[6][4] is defined and au[6][4] == elemento.id %}selected=""{%endif%} >{{elemento.nombre|title}}</option>
+						{%endfor%}
+					</select>
+				</div>
+			</div>
+			<div class="cuadro1">
+				<div class="titulocuadro">
+					<label for="name" class="letranormal">Inversi&oacute;n real por actividad:</label>
+				</div>
+				<div class="entradacuadro">
+					<input type="text" class="entrada numero" name="nombre" value="{%if a.6 !=null%}{{a.6.inversionrealporactividad}}{%endif%}" id="inversionrealporactividad">
+				</div>
+				<div class="unidadcuadro">
+					<select class="selectcuadro">
+						{%for elemento in costos%} <option  value="{{elemento.id}}" {%if au[6][5] is defined and au[6][5] == elemento.id %}selected=""{%endif%} >{{elemento.nombre|title}}</option>
+						{%endfor%}
+					</select>
+				</div>
+			</div>
+			<div class="cuadro1">
+				<div class="titulocuadro">
+					<label for="name" class="letranormal">Inversi&oacute;n planificada por actividad:</label>
+				</div>
+				<div class="entradacuadro">
+					<input type="text" class="entrada numero" name="nombre" value="{%if a.6 !=null%}{{a.6.inversionplanificadaporactividad}}{%endif%}" id="inversionplanificadaporactividad">
+				</div>
+				<div class="unidadcuadro">
+					<select class="selectcuadro">
+						{%for elemento in costos%} <option  value="{{elemento.id}}" {%if au[6][6] is defined and au[6][6] == elemento.id %}selected=""{%endif%} >{{elemento.nombre|title}}</option>
+						{%endfor%}
+					</select>
+				</div>
+			</div>
+			<div class="botonera">
+				<a href="javascript:void(0)" class="botones regresar" fase="7">Regresar</a>
+				<a href="javascript:void(0)" class="botones cambiofase" tipo="verresultado" fase="8">Resultados</a>
+				{%if ultimo != 7%}<a href="javascript:void(0)" class="botones cambiofase" tipo="avanzar" fase="8">Siguiente</a>{%endif%} <a href="javascript:void(0)" class="botones guardarcomo" >Guardar C&oacute;mo</a>
+				<a href="javascript:void(0)" class="botones cancelarestudio" >Cancelar</a>
+			</div>
+		</div>
+		<img id="loaderf7" src="{{ asset('imagenes/loader.gif') }}" align="center" style="padding-top: 100px;padding-bottom: 100px;display: none;margin: auto;">
+	</fieldset>
+	<fieldset id="cuadrof8" style="display:{%if primero == '8'%}block{%else%}none{%endif%}" class="{%if arregloOrdenes.7 == '0'%}invisible{%else%}visible{%endif%}{%if primero == '8'%} usado{%endif%}">
+		<input type="hidden" value="{%if a.7 !=null%}{{a.7.getId}}{%endif%}" id="idf8" />
+		<legend id="tituloFase">
+			Totales
+		</legend>
+		<div id="contenidof8">
+			<div class="cuadro1">
+				<div class="titulocuadro">
+					<label for="name" class="letranormal"> Tiempo real de taladro:</label>
+				</div>
+				<div class="entradacuadro">
+					<input type="text" class="entrada numero" name="nombre" value="{%if a.7 !=null%}{{a.7.tiemporealdetaladro}}{%endif%}" id="tiemporealdetaladro">
+				</div>
+				<div class="unidadcuadro">
+					<select class="selectcuadro">
+						{%for elemento in tiempo%} <option  value="{{elemento.id}}" {%if au[7][0] is defined and au[7][0] == elemento.id %}selected=""{%endif%} >{{elemento.nombre|title}}</option>
+						{%endfor%}
+					</select>
+				</div>
+			</div>
+			<div class="cuadro1">
+				<div class="titulocuadro">
+					<label for="name" class="letranormal">Tiempo planificado de taladro:</label>
+				</div>
+				<div class="entradacuadro">
+					<input type="text" class="entrada numero" name="nombre" value="{%if a.7 !=null%}{{a.7.tiempoplanificadodetaladro}}{%endif%}" id="tiempoplanificadodetaladro">
+				</div>
+				<div class="unidadcuadro">
+					<select class="selectcuadro">
+						{%for elemento in tiempo%} <option  value="{{elemento.id}}" {%if au[7][1] is defined and au[7][1] == elemento.id %}selected=""{%endif%} >{{elemento.nombre|title}}</option>
+						{%endfor%}
+					</select>
+				</div>
+			</div>
+			<div class="cuadro1">
+				<div class="titulocuadro">
+					<label for="name" class="letranormal"> Tiempo total de actividades ejecutadas:</label>
+				</div>
+				<div class="entradacuadro">
+					<input type="text" class="entrada numero" name="nombre" value="{%if a.7 !=null%}{{a.7.tiempototaldeactividadesejecutadas}}{%endif%}" id="tiempototaldeactividadesejecutadas">
+				</div>
+				<div class="unidadcuadro">
+					<select class="selectcuadro">
+						{%for elemento in tiempo%} <option  value="{{elemento.id}}" {%if au[7][2] is defined and au[7][2] == elemento.id %}selected=""{%endif%} >{{elemento.nombre|title}}</option>
+						{%endfor%}
+					</select>
+				</div>
+			</div>
+			<div class="cuadro1">
+				<div class="titulocuadro">
+					<label for="name" class="letranormal">Tiempo total planificado:</label>
+				</div>
+				<div class="entradacuadro">
+					<input type="text" class="entrada numero" name="nombre" value="{%if a.7 !=null%}{{a.7.tiempototalplanificado}}{%endif%}" id="tiempototalplanificado">
+				</div>
+				<div class="unidadcuadro">
+					<select class="selectcuadro">
+						{%for elemento in tiempo%} <option  value="{{elemento.id}}" {%if au[7][3] is defined and au[7][3] == elemento.id %}selected=""{%endif%} >{{elemento.nombre|title}}</option>
+						{%endfor%}
+					</select>
+				</div>
+			</div>
+			<div class="cuadro1">
+				<div class="titulocuadro">
+					<label for="name" class="letranormal"> Inversi&oacute;n real total:</label>
+				</div>
+				<div class="entradacuadro">
+					<input type="text" class="entrada numero" name="nombre" value="{%if a.7 !=null%}{{a.7.inversionrealtotal}}{%endif%}" id="inversionrealtotal">
+				</div>
+				<div class="unidadcuadro">
+					<select class="selectcuadro">
+						{%for elemento in costos%} <option  value="{{elemento.id}}" {%if au[7][4] is defined and au[7][4] == elemento.id %}selected=""{%endif%} >{{elemento.nombre|title}}</option>
+						{%endfor%}
+					</select>
+				</div>
+			</div>
+			<div class="cuadro1">
+				<div class="titulocuadro">
+					<label for="name" class="letranormal">Inversi&oacute;n planificada total:</label>
+				</div>
+				<div class="entradacuadro">
+					<input type="text" class="entrada numero" name="nombre" value="{%if a.7 !=null%}{{a.7.inversionplanificadatotal}}{%endif%}" id="inversionplanificadatotal">
+				</div>
+				<div class="unidadcuadro">
+					<select class="selectcuadro">
+						{%for elemento in costos%} <option  value="{{elemento.id}}" {%if au[7][5] is defined and au[7][5] == elemento.id %}selected=""{%endif%} >{{elemento.nombre|title}}</option>
+						{%endfor%}
+					</select>
+				</div>
+			</div>
+			<div class="cuadro1">
+				<div class="titulocuadro">
+					<label for="name" class="letranormal"> Ingresos estimados proyecto:</label>
+				</div>
+				<div class="entradacuadro">
+					<input type="text" class="entrada numero" name="nombre" value="{%if a.7 !=null%}{{a.7.ingresosestimadosproyecto}}{%endif%}" id="ingresosestimadosproyecto">
+				</div>
+				<div class="unidadcuadro">
+					<select class="selectcuadro">
+						{%for elemento in costos%} <option  value="{{elemento.id}}" {%if au[7][6] is defined and au[7][6] == elemento.id %}selected=""{%endif%} >{{elemento.nombre|title}}</option>
+						{%endfor%}
+					</select>
+				</div>
+			</div>
+			<div class="cuadro1">
+				<div class="titulocuadro">
+					<label for="name" class="letranormal">Flujos de caja (Ejm. 20,15,40) :</label>
+				</div>
+				<div class="entradacuadro">
+					<input type="text" class="entrada flujos" name="nombre" value="{%if a.7 !=null%}{{a.7.flujosdecajaejm}}{%endif%}" id="flujosdecaja">
+				</div>
+				<div class="unidadcuadro">
+					<div style="width: 40px;font-size: 0.7em;float: left;">
+						<select style="height: 32px;width: 40px;font-size: 0.7em;" class="especial" id="flujosdecaja">
+							{%for elemento in costos%} <option  value="{{elemento.id}}" {%if au[7][7] is defined and au[7][7] == elemento.id %}selected=""{%endif%} >{{elemento.nombre|title}}</option>
+							{%endfor%}
+						</select>
+					</div>
+					<div style="width: 40px;font-size: 0.7em;float: left;"  >
+						<select style="height: 32px;width: 40px;font-size: 0.7em;" class="especial" id="flujotiempo">
+							{%for elemento in tiempo%} <option  value="{{elemento.id}}" {%if au[7][8] is defined and au[7][8] == elemento.id %}selected=""{%endif%} >{{elemento.nombre|title}}</option>
+							{%endfor%}
+						</select>
+					</div>
+				</div>
+			</div>
+			<div class="cuadro1">
+				<div class="titulocuadro">
+					<label for="name" class="letranormal">Desembolso inicial de la inversi&oacute;n:</label>
+				</div>
+				<div class="entradacuadro">
+					<input type="text" class="entrada numero" name="nombre" value="{%if a.7 !=null%}{{a.7.desembolsoinicialdelainversion}}{%endif%}" id="desembolsoinicialdelainversion">
+				</div>
+				<div class="unidadcuadro">
+					<select class="selectcuadro">
+						{%for elemento in costos%} <option  value="{{elemento.id}}" {%if au[7][9] is defined and au[7][9] == elemento.id %}selected=""{%endif%} >{{elemento.nombre|title}}</option>
+						{%endfor%}
+					</select>
+				</div>
+			</div>
+			<div class="cuadro1">
+				<div class="titulocuadro">
+					<label for="name" class="letranormal">Interes (Ejem. 0.15 para un 15%):</label>
+				</div>
+				<div class="entradacuadro">
+					<input type="text" class="entrada numero" name="nombre" value="{%if a.7 !=null%}{{a.7.tipodeinteres}}{%endif%}" id="tipodeinteres">
+				</div>
+				<div class="unidadcuadro">
+					<select class="selectcuadro">
+						{%for elemento in interes%} <option  value="{{elemento.id}}" {%if au[7][10] is defined and au[7][10] == elemento.id %}selected=""{%endif%} >{{elemento.nombre|title}}</option>
+						{%endfor%}
+					</select>
+				</div>
+			</div>
+			<div class="botonera">
+				<a href="javascript:void(0)" class="botones regresar" fase="8">Regresar</a>
+				<a href="javascript:void(0)" class="botones cambiofase" tipo="avanzar" fase="9">Resultados</a>
+				<a href="javascript:void(0)" class="botones guardarcomo" >Guardar C&oacute;mo</a>
+				<a href="javascript:void(0)" class="botones cancelarestudio" >Cancelar</a>
+			</div>
+		</div>
+		<img id="loaderf8" src="{{ asset('imagenes/loader.gif') }}" align="center" style="padding-top: 100px;padding-bottom: 100px;display: none;margin: auto;">
+	</fieldset>
+</form>

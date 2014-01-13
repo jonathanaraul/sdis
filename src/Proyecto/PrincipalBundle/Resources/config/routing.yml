@@ -1,0 +1,56 @@
+proyecto_principal_homepage:
+    pattern:  /
+    defaults: { _controller: ProyectoPrincipalBundle:Default:index }
+proyecto_principal_listado:
+    pattern:  /listado
+    defaults: { _controller: ProyectoPrincipalBundle:Default:listado }
+proyecto_principal_acerca:
+    pattern:  /acerca
+    defaults: { _controller: ProyectoPrincipalBundle:Default:acerca }
+proyecto_principal_validacion:
+    pattern:  /validacion
+proyecto_principal_nuevo:
+    pattern:  /nuevo
+    defaults: { _controller: ProyectoPrincipalBundle:Default:nuevo }
+proyecto_principal_historia:
+    pattern:  /historia
+    defaults: { _controller: ProyectoPrincipalBundle:Default:historia }
+login:
+    pattern:   /login
+    defaults:  { _controller: AcmeSecurityBundle:Security:login }
+login_check:
+    pattern:   /login_check
+proyecto_principal_procesa_objeto:
+    pattern:  /procesa/objeto
+    defaults: { _controller: ProyectoPrincipalBundle:Default:procesaObjeto }
+    requirements:
+      _method: POST
+proyecto_principal_elimina_objeto:
+    pattern:  /elimina/
+    defaults: { _controller: ProyectoPrincipalBundle:Default:eliminar }
+    requirements:
+      _method: POST
+proyecto_principal_editar_objeto:
+    pattern:  /editar/{id}
+    defaults: { _controller: ProyectoPrincipalBundle:Default:editar,id: '1' }
+proyecto_principal_ver_objeto:
+    pattern:  /ver/{id}
+    defaults: { _controller: ProyectoPrincipalBundle:Default:ver,id: '1' }
+
+proyecto_principal_acceso:
+    pattern:  /acceso
+    defaults: { _controller: ProyectoPrincipalBundle:Users:acceso }
+proyecto_principal_registro:
+    pattern:  /registro
+    defaults: { _controller: ProyectoPrincipalBundle:Users:registro }
+proyecto_principal_cuenta_guardar:
+    pattern:  /cuenta/guardar
+    defaults: { _controller: ProyectoPrincipalBundle:Users:cuentaGuardar }
+    requirements:
+      _method: POST
+proyecto_principal_cerrarsesion:
+    pattern:  /logout
+    defaults: { _controller: ProyectoPrincipalBundle:Users:acceso }
+proyecto_principal_perfil:
+    pattern:  /perfil
+    defaults: { _controller: ProyectoPrincipalBundle:Users:perfil }

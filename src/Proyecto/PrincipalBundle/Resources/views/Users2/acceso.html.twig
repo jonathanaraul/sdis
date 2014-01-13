@@ -1,0 +1,84 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+	<head>
+		<title>SDIS v1</title>
+		<link rel="stylesheet" title="General" type="text/css" href="{{ asset('css/base.css') }}" />
+		<link rel="stylesheet" title="General" type="text/css" href="{{ asset('css/general.css') }}" />
+		<link rel="stylesheet" title="General" type="text/css" href="{{ asset('css/grey.css') }}" />
+		<link rel="stylesheet" title="General" type="text/css" href="{{ asset('css/jquery.alerts.css') }}" />
+		{%block estilos%}
+		{%endblock%}
+		<link rel="shortcut icon" href="{{ asset('imagenes/favicon.ico') }}" />
+		<script src="{{ asset('js/jquery-1.7.1.js') }}" type="text/javascript"></script>
+		<script src="{{ asset('js/utilidades.js') }}" type="text/javascript"></script>
+		<script src="{{ asset('js/procesos.js') }}" type="text/javascript"></script>
+		<script src="{{ asset('js/jquery.alerts.js') }}" type="text/javascript"></script>
+		<script src="{{ asset('js/jquery.printElement.js') }}" type="text/javascript"></script>
+		{%block scripts%}
+		{%endblock%}
+		<script type="text/javascript">
+		</script>
+	</head>
+	<body style="background:#d2dbe7">
+		<div class="contenido" style="margin-top: -127px;width: 1000px;margin-left: auto;margin-right: auto;padding-bottom: 44px;background-color: #d2dbe7;height: 765px;
+		padding-right: 9px;">
+			<div style="width: 220px;float: left;margin-top: 17px;">
+				<form action="{{ path('login_check') }}" method="post" style="width: 155px;" >
+					<fieldset style="-webkit-border-radius: 0px;height: 780px;">
+						<div id="inicio">
+							<p style="text-align: center"><img src="{{ asset('imagenes/udo.png') }}" >
+							</p>
+						</div>
+						<div >
+							<label for="name" class="letranormal"  style="width: 220px;text-align: center;margin-left: 0px;text-align: center;font-weight:bold;">SDIS v1</br>
+								Software para la Determinación de Indices de Saturación </label>
+						</div>
+						</br>
+						{% if error %}
+						<p style="color: #FF0029;text-align: center;">
+							Sus datos son inv&aacute;lidos
+						</p>
+						{% endif %}
+						<div id="contenidof1">
+							<div >
+								<div >
+									<label for="name" class="letranormal"  style="width: 220px;text-align: center;margin-left: 0px;text-align: center;">Usuario:</label>
+								</div>
+								<div style="margin-right: auto;margin-left: auto;width: 220px;">
+									<input type="text" name="_username" id="nombreusuario" class="" value="{{ ultimo_nombreusuario}}" style="width: 172px;position: static;margin-right: auto;margin-left: 13px;text-align: center;" />
+								</div>
+							</div>
+							<div>
+								<div >
+									<label for="password" class="letranormal" style="width: 220px;text-align: center;margin-left: 0px;">Password:</label>
+								</div>
+								<div  style="margin-right: auto;margin-left: auto;width: 220px;">
+									<input type="password" name="_password" class="" name="password"  style="width: 172px;position: static;margin-right: auto;margin-left: 13px;text-align: center;" />
+								</div>
+							</div>
+							<div  >
+								<div style="margin-top: 10px;text-align: center;">
+									<input type="submit" class="botones" value="Iniciar sesi&oacute;n" style="width: 196px;margin-bottom: 20px;height: 38px;margin-top: 7px;"/>
+								</div>
+								<div style="margin-top: 0px;text-align: center;">
+									<a href="{{path('proyecto_principal_registro')}}" class="botones"  style="margin-bottom: 20px;margin-top: 0px;padding: 9px;width: 177px;">Crear Cuenta</a>
+								</div>
+								<div style="margin-top: 0px;text-align: center;">
+									<a href="{{ asset('recursos/manualdeusuario.pdf') }}" class="botones" style="padding: 9px;width: 177px;" target="_blank">Manual de Usuario</a>
+								</div>
+							</div>
+						</div>
+					</fieldset>
+				</form>
+			</div>
+			<div style="width: 764px;
+			float: right;
+			border: 1px solid #747475;
+			margin-top: 27px;height: 780px;">
+				<p style="text-align: center"><img src="{{ asset('images/incrustacion.jpg') }}" style="margin-top: -15px;width: 763px;">
+				</p>
+			</div>
+		</div>
+	</body>
+</html>
